@@ -334,3 +334,5 @@ os.system("cat output2.txt >> output/%s.txt"%(str((sys.argv[1].strip('.docx').st
 subprocess.run("rm -f output.txt", shell = "true")
 subprocess.run("rm -f output2.txt", shell = "true")
 subprocess.run("rm -f input.txt", shell = "true")
+
+#commit to github:
