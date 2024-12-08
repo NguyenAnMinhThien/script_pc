@@ -1,0 +1,294 @@
+heree begin 0417
+write a script that compare two file base on the column, not the whole content of that line, we will defined the split position and the mark will be split, it will auto sort and compare/
+a script that have a list input, then it will open the needing and close (by using // on the outfix ) and reverse. -> should do mannually, for the full openning, at the beginning of each phase, CF, DF.
+correct again the adding comment at the begining of the code by using vimrc
+write a script to report the disk usage via mail (if you consider to work for synthesis)
+heree end 0417
+
+Do Monthly access check MAC for your laptop
+
+remove many number of pattern in intc.
+
+SaveRestore simulation
+Note: I suggest removing the '-reportstats' option from the Simv options because occasional crashes can occur with this setting.
+
+fix the code in run_para_intc.csh to change follow the sim version
+
+write a code tcl to collec the info of signal wanted just only by script, 50%, is on 06_code_example
+this is a sign to see the pattern is hangup,  release ddrphy-APB interface , write a script to capture this signal and kill the jobs to save the time
+
+$temp/final_list : the final number of test item in mstp/sfrst
+May it can avoid the hangup dueto routing from core to lbsc, it will encounter the hangup from core to msys module - an issue will happen when dump code to ddr success.
+
+about the order of telling :
+- axad, axvip
+- axperw
+- intc
+
+
+about the wave continue when we have suspend: this needs for the case when we forget open wave at te begin and by this way we save the state of simulation, serve for trace the signal value, but this is not useful for the case open wave already and even there is no effect in future.
+
+15 patterns, 1 fails increase, run again for 
+
+curent.docx : tmp0412 , tmp04123
+
+continue : 
+open wave by tcl , only script
+use setfont to zoom the terminal
+
+contact to FL about axad
+
+
+the step to correct again the repeated hier:
+with the repeated, need to have enough the register, the base address will be different, it is in the repeated hier if we repeated these register it will also 
+
+vip + 0040_0000
+npu  + 0400_0000
+imn + 0040_0000
+
+H'0_E700_0000		H'0_E7FF_FFFF	DDR7 (DDR PHY)
+H'0_E800_0000		H'0_E807_FFFF	DDR0 (FBIST, CKM)
+H'0_E808_0000		H'0_E80F_FFFF	DDR1 (FBIST, CKM)
+H'0_E810_0000		H'0_E817_FFFF	DDR2 (FBIST, CKM)
+H'0_E818_0000		H'0_E81F_FFFF	DDR3 (FBIST, CKM)
+H'0_E820_0000		H'0_E827_FFFF	DDR4 (FBIST, CKM)
+H'0_E828_0000		H'0_E82F_FFFF	DDR5 (FBIST, CKM)
+H'0_E830_0000		H'0_E837_FFFF	DDR6 (FBIST, CKM)
+H'0_E838_0000		H'0_E83F_FFFF	DDR7 (FBIST, CKM)
+
+
+is doing:
+check iRTL gen for the apperw2, gen and log file complete correct RTL on the master
+
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/log_apperw0_0402
+log_apperw0_0402
+
+axscp, apscp and the slv e of LamVo - san
+the axperw slave error and the fusa error in 1 pattern
+the ddr access pattern of perw
+
+
+in this later afternoon, MMS file and run again for all pattern
+http://masl002.eda.renesas.com/svn/rcarx5h/common/rcarx5h/trunk/VNET/MASTER_MOD_LIST/R-CarX5H_Module_Management.xlsm
+
+rerun again the mm_dbsc5, 7 on this saturday
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.1.0/hdl/Srclist_v_t_cmn.f
+
+create the axcmnbs for normal case, have full reg dummy /
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/5_bus_manuualy/
+
+$temp/excute
+gen pattern master have get correctly input
+
+
+
+
+the request bmod can be done for change server, but cannot do for memsize
+the command `echo "$hier_repeated" | grep -c ./script/register_description`  is not work !. Value is 0 although it exist.
+
+meeting
+fill in column , and get in a row any will see usrsoft..
+
+
+axss is a module in top hier
+git show --name-only <commit>
+
+axmm2_mm_dbsc0
+axad
+axhcn
+aprt0 sfrst 
+
+206999
+meeting
+feedback timing violation
+
+region id of port User, region number
+the spec for config region ID, in gen5_firewall
+
+META list: the first FF must  to replace by a fast FF, need to confirm , F list will have some in the sync of reset circuit, bus.pl in the rtl gen, 
+how to know in flexnoc have what sync circuit to define
+FF in sync reset
+
+axvipsync_reset  sync_reset_n
+there is 2, 1 in bus main and one in bus reg
+related to meta , gen master sync
+
+change to faster response
+
+non scan : the bus not have, ars have
+
+there is the relation between bus.pl and bus.pm
+
+the routing to ddr : axsn axmm ddr , this is another routing from 
+fill common checklist
+
+to be carefull with the command cp -rf with a folder that inside have the name duplicate, ex cp -rf apperw0 Needtorun/  but Needtorun/apperw0/apperw0
+
+Hi Sho Yamanaka -san , sorry for disturb you, 
+The result after access normal read/write the register is here:
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/sim_axatb_sfrst_chk_cr52_axatb/work_axatb_sfrst_chk_cr52_20240408_151418/
+In this case,  I write 0xffffffff and dump the last 4 bit, continue for write 0x0000aaaa and dump the last 4 bit, my pattern:
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/testcase/test_axatb/axatb_sfrst_chk_cr52/main.s
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/testcase/test_axatb/common/basic_macro.equ
+
+axmm0a, axmm0c are connected to axmm1, this axmm1 is duplicated via 2 instance
+axmm0a, axmm0b are connected to axatb
+why axmm0a, axmm0b have prot ? the other there is no have.
+axmm0e will connect to other target, why ?
+
+
+
+rtvram and rtsram are hard to control, if we can skip ?
+need to consider the limited of the mind and what things can be skip, because it can be controlled on another reset signal and via that it can be check, and we have the RT-VRAM verification,
+but first need to try by all effort via configure the register of protection , if you can.
+no, by another way, we can get the pattern the access from core cr52 to these region via PIC of this module, we will confirm by this way, and get the value of register also, 
+so we dont refer all knowledge in only , but get from the person have design, may be we are frend via team :)
+but first , need to understand the overall structure before ask, this is an intelligence way.
+
+apu, cmn, the relationship?
+dump boot code into the ddr area via cr52, that means the code of apu can not excute by itself, it needs to be excuted via rt core.
+but if apu is in cmn, why it can not dump the code into ddr directly, because there are some ports in cmn hier is connected dirrectly to ddr ?
+
+
+https://masl002.eda.renesas.com/projects/rcarv4m_verification/repository/changes/02_CT_testitem/rcarv4m_bus_testitem_CT.xlsx
+http://masl002.eda.renesas.com/projects/x5h_verification/repository/changes/02_CT_testitem/rcarx5h_bus_testitem_CT.xlsx
+LDR R6, =0xdcdcdcdc
+LDR 
+
+
+----
+
+
+
+proc CMP_R9_TO_FORCE { {str} {sig} } {                
+  if { [regexp "^$str$"  [ get_v %x $sig]] == 1 } {
+    return 1
+  } else {
+    return 0
+  }
+}  
+proc force_monitor {} {
+	if { [CMP_R9_TO_FORCE 'hdcdcdcdc shxsim.u_cr52_armnet.R9_usr] == 1 } { stop -relative 1ns -command force_signal_A -continue }
+	if { [CMP_R9_TO_FORCE 'hcdcdcdcd shxsim.u_cr52_armnet.R9_usr] == 1 } { stop -relative 1ns -command force_signal_B -continue } 
+}
+
+proc force_signal_A {} {
+  force shxsim.shxbrd.u779hhrcarv4m000.rt.rt_main.axrt.intreq_spi_ecmrt_lvl_p 1  
+}
+
+proc force_signal_B {} {
+  force shxsim.shxbrd.u779hhrcarv4m000.rt.rt_main.axrt.intreq_spi_ecmrt_lvl_p 0 
+}
+
+stop -event {shxsim.u_cr52_armnet.R9_usr} -command force_monitor -continue 
+
+
+-
+apcore has intreq 
+the intreq from axrt only, ecm error output, that means the error of secure will raise the intr and cpu will process for that problem.
+
+cd axcidbf
+cp -rf ../mm_dbsc0/OUTPUT/axmm2_standby_chk_cr52/result.god.l OUTPUT/axcidbf_standby_chk_cr52/result.god.l 
+cp -rf ../mm_dbsc0/OUTPUT/axmm2_sfrst_chk_cr52/result.god.l OUTPUT/axcidbf_sfrst_chk_cr52/result.god.l 
+cp -rf ../mm_dbsc0/OUTPUT/axmm2_mstp_chk_cr52/result.god.l OUTPUT/axcidbf_mstp_chk_cr52/result.god.l 
+cd ../
+cd axcmnbf
+
+SYSS : control and power for each
+at each state, see our module , should write at once and check once
+all 4 case, module stop, module reset
+at sentry mode: if what module is in this region, check again the registers in this region
+at cyclic mode: again for our module case.
+can be stop at sentry no need to return to run
+if have x propgation, take care force if need
+lbsc only operate on 030000 0340000, transfer from lbsc to scpram
+waht mode and core operate on a module
+the whole flow of the TM, modifye where
+before change mode, get the value of the register, then go on another mode, read again the register value
+
+OFF -ON then all modules will operate again, access the register normally.
+
+we dont know what step will reset, so in what step we will acess it. not acess at once time.
+Undefine exception: the module is off , when read then that module will not fail. that is the policy.
+
+On the state before it off, need to set.
+the master core runs on the pattern is on the scp core.
+we dont touch into the shipm module
+We no need to use the shipm core
+when access to a module it .
+Use the clock mod to remove the fusa erorr.
+May we need to check fusa erorr or need to debug, find the root cause to see if we need to debug or not.
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/sim_intc_apperw1_intc_chk_cr52_apperw1/work_apperw1_intc_chk_cr52_20240417_095553/
+
+0417
+About the axperw, use the apu code to boot.
+about the axvip, verify again this bus, it is on the TOP function
+about axmm0, axdsp, this is mistake in teamCPG, the current signal is verifying the signal in ars module, not the bus we want.
+
+interrupt pattern: use the port injection error setting
+APU pattern: .list fail, lack the option 
+
+$temp0419
+
+
+LDR w3, = CODE_OK    ; dump beef when pass
+STR w3, [x7, #0]
+ADD w7, w7, #4 
+
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.apperw0
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/testcase/test_axperw/axperw_standby_chk_cr52
+
+
+meeting at 0508 in Bus team
+the ecm, UT
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_axdsp1_mstp_chk_cr52_axdsp1_full/work_axdsp1_mstp_chk_cr52_20240502_152908/
+
+
+set routing modifier bit in ICC_CTLR_EL3
+set enable many kind of interrupt in this register: ICC__SRE_EL3, allow non secure mode and ..
+Enable group 0 interrupt and group 1 interrrupt 
+
+
+setICC_SRE_EL2_$src
+	MSR   ICC_SRE_EL2, x0
+	ISB
+
+icc_igrpen1_el1
+icc_igrpen1_el3
+icc_igrpen0_el1
+ICC_SRE_EL1
+ICC_SRE_EL2
+ICC_SRE_EL3
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_axdsp1_mstp_chk_cr52_axdsp1/work/
+
+/design03/rcarx5h_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.4.0/MASTER_RTL/
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_aprt4_intc_chk_apu_aprt0/work/
+
+~/script/loop 'COMP_DATA/vcs_comp_data/comp.log' "PASS"
+
+is waiting for the compile success on dedicated server.
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/top_x5h_sim3.1.0_full/sim_mmurt00_interrupt_apu/work_mmurt00_interrupt_apu_20240325_100859
+
+wrting the ticket assigne for Tomoda Honda.
+
+Hi ,
+Currently I am verifying a pattern in MSTP/SFRST checklist, but I encounter X value in 'isack' signal from my bus module. This value is propagated from some signals and also from the CK_T0_0_OUT signal (output from the atmdsp module). Follow I understand, this is dueto the this signal is output from two submodule, may this is the root cause raising X value for this signal ?
+This is my waveform for reference, in axdsp1 module:
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_axdsp1_mstp_chk_cr52_axdsp1/work_axdsp1_mstp_chk_cr52_20240510_181819/
+
+gpc0_bridge_wrap
+u7800haxsn0etop0.io
+u7800harspvmqtop0.io
+
+axsn0e  ->  u7800harspvmqtop0.io 
+
+update common checklist, the file has completed content/
+rcarx5h_intc_common_checklist.xlsx

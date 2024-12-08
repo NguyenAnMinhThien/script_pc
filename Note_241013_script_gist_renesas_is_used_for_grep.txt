@@ -1,0 +1,1539 @@
+achivee iogenn  v4lutt x5hutt remmemberr quess commonn ctt rulee importanntt docc note commondir
+classify follow thing to focus
+- UT
+- CT
+- RTL design and FlexNoc tool
+- STA, DFT, Backend design
+- whole chip theory
+classify follow the kind of knowledge
+- SV, Verilog
+- UVM
+- Tool DVE, design vision, VCS, genus (synthesis), FlexNoc
+- Script perl, csh, vim
+classify follow the source to learn
+- Onedrive of private, onedrive of Renesas
+- bus_repo/Management/09_Technical_Transfer/AnV_Transfer_202304/Technical_Transfer_anvo.xlsx â?" VisualSVN Server 
+- Team_RVC_BUS - Home (sharepoint.com) 
+- Local data on laptop renesas 
+- Where store all some doc in functional verification, backend design, big course 
+T:\New_Engineer_Training\HW_Design_Practice 
+Doc from the small course 
+\\rvc-vnas-01.rvc.renesas.com\pub\RVC Technical Training 
+\\rvc-vnas-01.rvc.renesas.com\pub\RVC Technical Training\01_Basic Course 
+\\rvc-vnas-01.rvc.renesas.com\pub\RVC Technical Training\04_Practical Course 
+\\rvc-vnas-01.rvc.renesas.com\ipw1\BUS\users\duongnguyen2\10_Training_data 
+R-Car X5H with RVC - BUS - All Documents (sharepoint.com) 
+This is doc from rcar-design global 
+R-CarDesignDocument - Documents - All Documents (sharepoint.com) 
+- Online course 
+Online Courses - Learn Anything, On Your Schedule | Udemy 
+Learn from : Geekforgeek, stackoverflow, quora, DV-training
+nguyenquanicd, thietkevimach Viet Nam
+Arm developer comunity,.. 
+classify follow the place to store data physical
+- Private computer
+- Renesas laptop
+- Private laptop
+importantt: need to read again, there are many knowledge usefull and can understand later.
+docc: in sub of main title, doc relates to that title.
+note: some key trick in that title.
+
+taskk
+temp/iogen.vim
+io file related to research about split bus module
+tbu list actually is extract from IF spec, include many IP instances related.
+
+/shsv/ipw1/BUS/users/hungcao/X5H/ref
+why we need to define the connnect between submodule ? because we split out to small modules, but we need to sure about the functional of the overall, even there are some clk that will provide for other modules in other sub so we need to sure the connect .
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/BUS_IOGEN_X5H/script/ars_def.pl
+
+wholee
+why lstq is divided into 2 channels r - w ?
+BusECM error is collection from ECM control from a specific IP , why ?
+Clock name  , clock net, skbr, clock frequency, IP sellect ?
+
+flexnocc
+tip
+increase more cpu to open that flexnoc more faster.
+how many parts there are in a pdd file ?
+Gen a pdd to RTL ?
+get this dir:
+$win/07_Reasearch/01_Flexnoc
+
+how you know a initiator can access to a target ?
+if you should add the info of both master and target into the bus module ?
+&&: NIU, 
+what is the info of arbiter and decoder ?
+if I put more than 1 address to access to a target, what is different in the pdd file >
+where is a complete pdd file after modify, and it is ready to use for gen RTL code ?
+how to lear flexnoc ? get a file complete and a file after flexnoc gen, see the diff.
+
+rulee
+add the sub content and subject by the wrong name, with more a character to the end.
+prinn: this must be print all in Note convert .
+write for the after final page, from the bottom to arrange the newest knowledge.
+
+
+v4lutt
+remove coverage info in sv/coverage/mst_cov
+create module list, remove glue logic module 
+make again tb top, link io file, link rtl
+exception (include gen_env.pl)
+
+[BUS]Update checklist BUS UT V4L.
+/design03/rcar_work12/V4L/BUS/users/thiennguyen6/UT/BusUT_v4m_run/TBMAKE/V4M/UT_address/lib_xls
+/design03/rcarv4l_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim1.1.0/MASTER_RTL/
+/design03/rcarv4m_mst_rvc/VNET1.0/MASTER_TM/
+/design03/rcar_work12/V4M/BUS/users/toanvo/04_Verification/02_CT/
+https://renesasgroup.sharepoint.com/sites/ext_8682_313/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fext%5F8682%5F313%2FShared%20Documents%2F02%5FSpecification%2FBus%2FTrunkBus&viewid=03d2fccb%2D18b8%2D4bf8%2D8f87%2De93309cd4b71
+- Perl lib: <bus_repo>/Design/Tools/lib
+/design02/rcarg4_lib2/TSMC_N7/macro
+
+/shsv/ipw1/BUS/users/thiennguyen/temp/R_CarV4L_Interface_Spec.xlsx
+/shsv/ipw1/BUS/users/tanminhdam/08_DESIGN/V4M_PRJ/BUS_RTLGEN/iRTLgen_for_V4M_CN/script/CSV
+
+
+/design03/rcarv4l_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim1.1.0/MASTER_RTL/
+The snapshot of a project will store follow this for, also for v4m : rcarv4m_mst_rvc
+
+In log file of UT .., the specific ram is used , this is to access to ram via axmm (DBSC controller)
+	errors: 0, warnings: 0
+	module V4M_TSMC_ram.B_TSMC_SPSB_ts1n7asbsvta512x28m4wbzhocp_mode_decision:vm
+		
+condider to see the risk , the complex
+change effects to counter measure
+
+demo_top.x_spreset_avb = 0; 
+demo_top.x_spreset_avb = 1;
+
+current run -ecm_check , this is a code verilog, can't get the success running, the error fail when finding the way to run the -ecm_check into the module, because we have the error (even if there is still not run into the code !)
+the purpose is to sure there is no error when access to the slave is removed, that meaning durring the process running, busecm will now assert error signal (the error must be 0 ) all time, but how I can see this value, If i need see this value by waveform ?
+
+/design03/rcar_work12/V4L/BUS/users/thiennguyen6/UT/BusUT_v4l_run/updated/u779hhaxvi00top0.v
+err_32 edge, edge detection, check 
+clear edc err, error signal of Lock Step
+
+
+xcelium compile
+/design03/rcarx5hfed_work11/BUS/users/duongnguyen2/01_Design/FlexNoC/module_design/06_Xcelium_compile/
+rtl design plan
+https://renesasgroup.sharepoint.com/:x:/r/sites/R-CarBusTeam/_layouts/15/Doc.aspx?sourcedoc=%7B7A357017-5E55-4FB1-AC29-3351DAF409BD%7D&file=%5BX5H%5D%20%5BBUS%5D%20RTL%20Design%20Plan.xlsx&action=default&mobileredirect=true
+IF a master access to a slave and it encounters the hang-up, how it can process ? it will ignore and go to the next slave.
+QOS is only for a limited master apply ? yes, there will have a list in SPO tell what is the qos master .
+/design03/rcar_work12/V4L/BUS/users/COMMON/VNET/MASTER_RTL/
+/design03/rcar_work12/V4L/BUS/users/COMMON/VNET/MASTER_IO_IFCHK
+/design03/rcar_work12/V4L/BUS/users/COMMON/VNET/MASTER_MOD_LIST
+/design03/rcar_work12/V4L/BUS/users/COMMON/VNET/MASTER_RTL/u779*htapdbsctop0.v
+
+commonn
+how to find the files have a string pattern ?
+why moba cannot access to graphic function ? ftp server has permission. the config file : cat /etc/ssh/sshd_config |grep X11 .
+tip
+when moving in the same disk very fast, but this is very slow between the disk.
+
+iRTLgen: http://172.29.139.78/bus_repo/Design/Tools/DESIGN/BUS_RTLGEN/X5H/iRTLgen_X5H
+Iogen: http://172.29.139.78/bus_repo/Design/Tools/DESIGN/BUS_IOGEN/BUS_IOGEN_X5H
+FlexNoC gen: http://172.29.139.78/bus_repo/Design/Tools/DESIGN/FlexNoC/FlexNoC_Gen
+Pdd file: http://172.29.139.78/bus_repo/Design/Tools/DESIGN/FlexNoC/X5H
+
+
+ctt
+usr_sum.tcl
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/testcase/test_aprt0/aprt0_testsfrst_chk_cr52/tcl_vcs/usr_sim.tcl
+
+usr_sim.tcl of intc
+/design03/rcarx5h_mst_rvc/VNET1.0/MASTER_TM/INTC_X5H_RTL/INTC_sample_pattern/Realtime_interrupt/tcl_vcs/usr_sim.tcl
+
+practice DC
+/shsv/ipw1/BUS/users/thiennguyen/TCL_env/Practice_DC/
+
+
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/top_v4m_sim3.15.0/sim/work_aprt0_sfrst_chk_cr52_20240204_164543/
+
+bmod -q AL_Vcs_s 115549
+How to specify the bus axscp in ct and trace the axi if related to ? this is link to try /design03/rcarx5h_export/jp/yamagkyo/20240111/work_cr52_access_reg_WriteRead_20240111_085154 ?
+
+x5hutt
+abouti the pattern flow : how the UVM know it is the last address of the last slave in SV ? in apb test pattern, we use uvm do on with  , but in axi pattern, how we use SV to allow make the constraint into the transaction address. ?
+all this pattern flow is on the SV code, but what file we do ?
+if a slave is hang-up, how we can control in sv ?
+what is the step to create an VIP model ? 
+when I need to get coverage points, as in descripe, how I can get ? must have the data predict first then have the response , see the response if it is the same with the already, so we need to set up a time to wait , how ?
+all the whole env, before we can get the coverage report, we need to dump out the value of the important points need to cover, and after all finish, we get that value in auto coverage to judgement by a tool .. , different with xcelium !
+Note: when I add only axi pattern, we also have the info in the apb cov table. 
+Note: when you move to the new dir, need to run again the whole 03_ -all, this need to avoid the error not find out file .. in comp step, then lead to error in pattern running, related to lack vip model .., . Not run 03 -comp but must to run the whole in this case.
+
+status
+https://renesasgroup.sharepoint.com/:x:/r/sites/Team_RVC_BUS/Shared%20Documents/PJ-X5H/Common%20for%20tasks/BUS_UT/BUS_X5H_UT_SIM_STATUS.xlsx?d=w200a8dd9d2c545b0887fe94855a1c1cb&csf=1&web=1&e=680hsM
+
+Coverage : 
+/shsv/ipw1/BUS/users/duongnguyen2/04_Verification/02_UT/X5H/X5H_BusUT_Env_10Jan/work/apb/foreach_tran_apb_APPERW2__AXPERW2APPERW2_ASYNCX_refer/rch3_sim/xrun.log
+
+file xrun.history is the final file you see for all the commands excute durring the process, also for comp cadenvip, but in x5h we only see when it run the pattern, in v4m we can see the detail both on comp and the vip cat how it create
+what is data compression , split ddr channel , apply gpu in bus ut, the usefull of HOSTGR_L in bs optimize , how to apply the .tcl durring the process, ?
+why we need to choose the cr52 boot core ? what is dmac and why need to choose dmac ?
+the workflow of uvm is ? from the time to transmit to the time to success ?when a instance create, a class master, will have the reset start and reset end , after reset and load ipmmu table , the master will create and transmit transaction over the bus module . Final, we have a report about all the transaction complete and not complete, uvm error, fatal, at the end of file. durring the transaction, each transaction is inserted into uvm model. 
+when we need ram and dbsc ? when at the end of phase, dut is completed, connect all bus together, we connect dbsc and ram into bus, later, there is access from master to ram and we dont need to create slave in this case ?
+
+Current the master can not access to slave, the decode error response 2, this means ipmmu there is no info about this slave ? if the address of slave are stored, what file in the env store this info > and where is the code xcelium call load this table into the simulation >
+the final response from ipmmu is for bus ?
+if a class is driver in uvm, the input of it will be sequencer, the output is a completed transaction is driven into dut, so where is the place we store the info of the transaction and transmit it to dut >
+use this file âÂ Â  âââ ./scripts_x5h/gen_apb_test.pl to correct again the apb patterns.
+why I have remove 2 apperw0 and 1, allow access from axperw to apperw2 but the matrix table apb only the same with, there is no info about : /shsv/ipw1/BUS/users/duongnguyen2/04_Verification/02_UT/X5H/X5H_BusUT_Env_10Jan/sv/test/apb_test/APPERW2__AXPERW2APPERW2_ASYNCX_apb_test.svi ?
+the data read from an apb slave is random ? no, it have a constraint both when that apb raising the signal and uvm env reading from, so if the data read from not equal a value decide before, we have evalute it is uncorrect .
+why ecm check and the address related for the case ..FE0?
+if i have a sequencer rasing randomly from the uvm env, what code will gen out the driver to dut beyond the axi transaction ?
+ARS def:  this is a module and it belong to an hier, each hier may have many many ars modules, if i use different clock, we will see the clk differently, but why in spec there are many 
+luxu: (request && !grant) |-> ##1 (request) , 
+tessolve
+/shsv/ipw1/BUS/users/thiennguyen/02_Two_months_training/05_Tessolve_verification/TESSOLVE_DV_Training/Verilog_Repo/1.adder/8-bit_Carry_skip_adder/
+have run successfully with this dir, remember to change the script, interface file, the path of vcs tool
+
+how we can define the scope for a subsystem verification? we depend on the input output of that sub, the bus need to connect and finally it will connect to chip top, .
+
+quess
+how to check out and check in a file in sharepoint? use more -> checkout and more -> check in
+what are the modules will connect to axrt ? why we need axscp connet to it ?
+why axmm divide into 3 axmm0,1,2 , the final is axmm2 is the hier decide of the whole axmm, so if i want to debug on axmm , i need to devide into smaller, what will be included in the debug method ?
+what is fcprc ? it is a compress moduel ,if fcprc is access by axmm2, that mean data after get out from dbsc ram can compress by go via axmm2, should remember that all data need to go via bus to manage, so we need to connec via axmm2 .
+when I check out a file from spo, if i can change the info by coppy from another file ? no, this is for protect the file .
+what the knowledge is common and what is the specific ?
+how to use ls in a short to combine with rm command ? use ls -u .
+how to auto notify the anoucement in email after update an bus repo ?
+PCIe and normal access to ram is have the same way to treat ?
+how to turn off the loop in while ? break
+can i sort -u -o the files and that files will output normally ? need to change permission first : chmod 755 for the file excute the command sort -u
+if i up a to an svn, just svn add and commit ? no, it must the latest svn co, to sure the data we are modifying is also follow the newquest update.
+the compare in perl have what special ? compare between string eq , ne but between number it is == , between variable store string and store number is also different .
+
+luxxury
+tessove:
+
+https://jpn01.safelinks.protection.outlook.com/?url=https%3A%2F%2Ftessolvesemiconductor.sharepoint.com%2F%3Af%3A%2Fs%2FRenesas-DV-Training%2FEiwG3jlWbZ1Ds3QAwuqNCyoBhYf30fSVGwXdAa5J-S-UxQ%3Fe%3Dv7I4pW&data=05%7C02%7Cthien.nguyen.ct%40renesas.com%7Cfb783958f6254bd4faa408dc125f339e%7C53d82571da1947e49cb4625a166a4a2a%7C0%7C0%7C638405447411804193%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=RvYnivuKb%2BG9kHe16bt1BHwNjWkfNZVsYReMEucj7E0%3D&reserved=0
+TE$Training*357
+why we see buffer in vim change ? this is due to Vim open many file at many window, these are stored in buffer, so we can bNext to open the new.
+What is the different between CPU types ? 
+how we can run_compile the code ?
+the procedure for each cpu type ?
+The default output when excute these cpu file ?
+how we compile again the result.god.l
+
+If I can reuse some info from X5H sample patterns for gen new patterns ?  this mention the mstp, cpg base but when compare with address map this is not match ?
+what is the mcr command ? how it work ? MCR command allow we know the info of master cpu core, so what is the difference between cpu core master and slaves ?
+
+The struture of new pattern sample cr52 ? 
+The total number of patterns in v4M? 
+what is the root file for gen pattern, the file will call other smaller files ? The gen_pattern.csh 
+
+What is madatory to up to CT pattern and what not ? 
+How to assert SVA ? 
+How to get result coverage?  We see in CT, also have the coverage report about the toggle port, the number of port in/out is checked, the function of code in rtl have been tested. So we need to get coverage report for this option.
+
+The structure of testpatterns ? Dir ? 
+Gen pattern file from script What is the meaning of each script ?
+
+The module bus is different, so we may have some value here is different with the value from other module
+When we upload a new thing to other team to work, don't overite the old file, just replace by the new file. This is for them can reference again.
+
+The safety machanism using in AXI bus??
+&&: FCPR What is TCM? DCLS mechanism ?
+
+
+What is diffrent between testcase in Xprol and normal mode:  
+
+Final the normal test for CT
+Check the assertion in CT pattern 
+For performming axi test, what class we need ? The patterns are written by this are located in ? 
+Gen result.god.l 
+gen pattern arm for some specific module like mstp, sfrst, reg check, check reserve address,  
+gen goden file result.god.l, (mstp will have diff name) ,  
+the atrribute register for each type lstq, pmon, amon 
+The input .lib is used for these file. 
+A gen pattern master call other scrri[t 
+A gen bus reg_attr from the html file/ 
+
+Power domain in v4m c4 on off 
+
+
+printf %-Ns vá»i N lÃ  sá» setting dc
+my @files = `ls ./log_ex_5/`;
+
+How to use the module from perl site ?
+náº¿u cáº§n copy file em cÃ³ ÄÆ°á»£c sá»­ dá»¥ng module nÃ y khÃ´ng áº¡? 
+https://perldoc.perl.org/File::Copy
+
+Finally, you can also use the glob operator if you prefer, something like this code sample:
+@files = glob("*.*");
+foreach $file (@files) {
+  print "$file\n" if -f $file;
+}
+I'll write more about the glob operator in other tutorials, but hopefully that's enough to whet your appetite.
+
+tip 
+Use <CR> in vimrc to enter.
+
+what is the usefull of ipmmu ? translave address and protect the unit from outside access.
+
+heree
+temp
+ext ends uvm_dr ive r
+build phase () to run phase ()
+the driver need to wait DUT response before sending new data.
+UVM API ? tick
+
+add gluelogic, what happen
+compare normal module and glulogic, the instances 
+
+
+iogenn
+/shsv/ipw1/BUS/users/thiennguyen/Fix_IOgen/BUS_IOGEN_X5H
+this is the dir of new checking from svn
+
+
+remmemberr
+bus reg:
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/OUTPUT/busreg/x5h_full_busreg_addr.equ
+all reg addr of ecm of all bus modules:
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/OUTPUT/busecm/x5h_full_ecmerr_assignment.csv
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/OUTPUT/busecm/x5h_full_ecmreg_addr.csv
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7BEE357066-49D1-40D2-8186-888BCEF77712%7D&file=X5H_BusError_BusSideband_collection_merge.xlsx&action=default&mobileredirect=true&ovuser=53d82571-da19-47e4-9cb4-625a166a4a2a%2Cthien.nguyen.ct%40renesas.com&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yMzExMzAyODcyNCJ9
+x5h bus error bus sideband collection merge >
+
+HLDRDC
+http://edasite.eda.renesas.com/cgi-bin/lv1ww/tools/REL/data/manual/manual_2321.pdf
+a5144
+M!nhth!en97
+manual general
+http://edasite.eda.renesas.com/cgi-bin/lv1ww/tools/cgi/to_sel_menuframe.cgi?lang=en
+
+ifchk
+/design03/rcarx5hfed_work81/03_mkTOP/VNET1.0/IFCHK/14_PERW/FLOATING_REP/
+
+
+stream ID
+https://www.microsoft365.com/launch/stream?auth=2
+dir of bus
+/drives/c/Users/a5144834/Renesas Electronics Corporation/R-Car X5H with RVC - Documents/02_Specification/BUS
+
+'C:\Users\a5144834\OneDrive - Renesas Electronics Corporation\Attachments\Notation'
+HCMO- canteen & lobby renovation & Tet Holiday
+
+collect error in cadence
+https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000009EUHmUAO&pageName=ArticleContent
+
+
+To recognize the password change, remember the credential first when it is at the local network at office, then at home we will access it success.
+
+
+
+Build an env to learn about env with many files: a window to run, make change by gen from root, a window for vim edit, used to make change. the vim is issuse from tree -f. 
+
+Dvide the phase into 2:
+get input and running, end of this phase will call a infinity loop
+wait for the result in a file (macro waiting)
+get output from env and put in a folder storage.
+
+Currently I cannot understand the spec base on the dry data.
+getting the line after an image or a line after -, if that line is not appear after the picture, will not get anything.
+
+The function of any module: via CT items and UT items in module management, click to hyperlink. We also can see the info of the reused module from previous chip.
+in each folder may have file discovery_this_folder, in each file may have the notation for that code, also store the info at 07_code for some code want to store later.
+Another of learning is from rcar-redmine, from the issuse of previous people and by following the msteam chat.
+# , // : use to mark the note in a file of code or the output file name from find command .
+Discovery_ : pre_fix for finding the info about a file that is used to mark the content discovery.
+& ; this is for the key word we want to capture from the info 
+@temp : this is for the content related to renesas in note for all
+add the tail into file name: _rm to find out that file top, remove later and later untill there is no info we don't know
+todo: can done but need time and effort
+againn : need to read again
+prinn
+important : need to read again
+common : the content not related to the main stream
+heree :from begin of file
+heree1 heree2 : from top to bottom
+upp1 upp2 : from bottom to up
+
+https://support.cadence.com/apex/Coveo_ProductManuals#t=ProductManualsFromRelease&ph=VIPCAT%2011.3&cadrelease=vipcat113&seetocfiles=true
+Cadence
+M!nhth!en97
+thien.nguyen.ct@renesas.com
+
+change RVC window password
+old: Pass1234
+M!nhth!en97
+
+after get new pass
+bus repo
+rcar red mine
+forticlient
+bitlocker: still minhthien97
+renesas global: ..
+moba pass: ftp, ssh lsf@login08
+in map network drive: remove the old credential, in my PC map again network drive and use rvc\thiennguyen6 and try these pass but not success: minhthien97, M!nhth!en97, Pass1234
+
+
+
+mentor mentee
+jira
+https://jira-gasg.renesas.eu/secure/Tempo.jspa#/my-work/week?date=2023-11-17&type=LIST
+
+The knowledge and question for
+https://en-support.renesas.com/knowledgeBase
+
+http://masl002.eda.renesas.com/svn/x5h_verification/
+a5144834
+M!nhth!en97
+
+forticlient
+thien.nguyen.ct@renesas.com
+minhthien97
+
+
+Access Linux server
+thiennguyen6
+Pass1234
+
+\\rvc-vnas-01.rvc.renesas.com\pub\RVC Technical Training\06_New Engineer Training\04_RTL Programming
+
+Public tasks and exercise (ASOC)
+http://172.29.143.164:8080/projects/asoc1_vn/issues
+
+Team Bus driver for report weekly
+bus_repo/Management/00_Weekly_Report/FY2023/BUS_Team â VisualSVN Server
+
+Team RVC BUS documents
+https://renesasgroup.sharepoint.com/sites/Team_RVC_BUS/SitePages/ProjectHome.aspx?xsdata=MDV8MDF8fGMxYTcxMWY0YThmOTQ5NjFlNGM1MDhkYjdjNzRhNzE5fDUzZDgyNTcxZGExOTQ3ZTQ5Y2I0NjI1YTE2NmE0YTJhfDB8MHw2MzgyNDA2MTI2NjQ1OTk3NDl8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxMMk5vWVhSekx6RTVPakV5WVdJeU5XUXdMVGN5TjJVdE5EWmlPUzA1TURjd0xUTXdORGd3TUdRM1lqSTBZMTlpTURFM05HRXlaUzFtWVRGa0xUUmlaakF0WWpCaU1DMW1OemRrTVdFMU1XRTNNV05BZFc1eExtZGliQzV6Y0dGalpYTXZiV1Z6YzJGblpYTXZNVFk0T0RRMk5EUTJOakEwT1E9PXxjMjkyNzU4NmJiMTg0MWQwZTRjNTA4ZGI3Yzc0YTcxOXxmZjY0ZDFlMDE4MjI0ZTg4OTFlMGY5MGQxNjRiYTYxYw%3D%3D&sdata=ZEhtZjluZDFldnR2ZFFWK25rcWJROXgzUHdjUDhJdHhJUEdzWEdCeks5OD0%3D&ovuser=53d82571-da19-47e4-9cb4-625a166a4a2a%2Cthien.nguyen.ct%40renesas.com&OR=Teams-HL&CT=1688548706743&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA2MDQwMTEzOCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D
+
+Relate to access target and set skill follow these links:
+https://performancemanager5.successfactors.eu/login?company=renesasele#/login
+Report objective and set target
+http://172.29.139.26/
+and go to HRIS..
+
+RVC booking
+https://rvc-booking.netlify.app/
+- Username: 3379 
+- Password: i0Jkt8dQFGa3k0a9 
+
+Cadena
+â¢	Access Link: http://172.29.139.62/ESS/Main.aspx
+â¢	User Name: 3379 pass: M!nhth!en97
+
+Bus team weekly report
+https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html
+thiennguyen6
+Pass1234
+
+Canvas
+thiennguyen6
+Pass1234
+
+R-car redmine + masl002.eda
+a5144834
+minhthien97
+
+
+request for borrow rvc laptop
+http://172.29.139.26:8080/servicedesk/customer/portal/2/create/167
+thiennguyen6
+Pass1234 
+also store the information about how to fill the file of rvc borrow on microsoft team.
+
+The global service desk IT in RVC IT Training
+The training source:
+\\rvc-vnas-01.rvc.renesas.com\Training\IT\37G\Onsite_Training 
+
+
+MobaXterm
+remote working: 172.29.138.144  remeber log out from FTP server and UNIX env
+
+ssh thiennguyen6@lsf-login08
+cd /design03/
+/design03/radar_work12/MMICP/BUS/users 
+When open, it ask about master pass:
+Pass1234
+if it is fail, use: minhthien97 instead
+
+https://www.renesas.com/
+thien.nguyen.ct@r
+M!nhth!en97
+nhap: current i have 2 way to go. find out in deep about the ipmmu table, what files will be used to force value from apb slave, why the first address address is always can access, the second is fail, for apb. the second is focus immediate ly, build again environt ment and get the same fail result .
+prinn
+first, need to specify the general problem, then go more details
+what is the relationship between rtl and ifspec ? rtlgen is related to if_spec because it use if_spec to specify what instance is used in bus module and gen out the signal from, .
+why we need cache mem when need ipmmu access ? mem cache is the first connect to the initiator, may have another mem store the table reference but they may be far from.
+why we seperate into many pages for translation address ? this is related to algorithm, the utlb will find out the address at middle, then middle of middle divided by 2 untill it find the correct page contain the address need to translate. 
+what is the size of each page it store ? the utlb and ipmmu are the same function, the only different is utlb is smaller and it directly to master ?
+edasite:
+http://edasite.eda.renesas.com/cgi-bin/lv1ww/tools/REL/data/manual/manual_2321.pdf
+a5144834
+minhthien97
+
+Team addtendee:
+Hung Cao <hung.cao.vz@renesas.com>; Cong Le <cong.le.aj@renesas.com>; Khoa Nguyen <khoa.nguyen.jx@renesas.com>; Duong Nguyen <duong.nguyen.zj@renesas.com>; Nguyen Dao <nguyen.dao.xd@renesas.com>
+hung.cao.vz@renesas.com, cong.le.aj@renesas.com, khoa.nguyen.jx@renesas.com
+Secretary book
+thiennguyen6
+minhthien97
+http://172.29.143.73/Secretaries/index.php
+
+-------------------------
+
+
+Jira
+https://jira-gasg.renesas.eu/login.jsp?permissionViolation=true&os_destination=%2Fsecure%2FTempo.jspa&page_caps=&user_role=#/my-work/week?type=LIST
+ask for Jira account?
+
+\\rvc-vnas-01.rvc.renesas.com\ipw1\BUS\users\duongnguyen2\10_Training_data\01_documents\00_General_spec\CT_Verification_BUS
+\\rvc-vnas-01.rvc.renesas.com\ipw1\BUS\users\thiennguyen
+W:\thiennguyen6
+
+
+
+http://socrm.dgn.renesas.com/projects/s597/wiki
+
+ bus research
+ bus@
+ 
+T:\New_Engineer_Training\HW_Design_Practice\BackEnd_Design\38G\01.Document
+
+technology verification
+technology@
+@Env
+
+exerccise for sta in note for all -> exercise@sta
+Bus design -> research@bus
+rtl exercise -> exercise@rtl
+
+zzzai
+`uvm_do_on_with(readseq, p_sequencer.axi_master_seqr[AXRT__CR52SS0MX],{r_addr==32'hE7754010; r_data==32'h2000000;})
+we will excute a read sequence, class p_sequencer and specific target is axrt_cr52ss0mx , in this read sequence, we want the expected value is defined in the constraint, so what we define in read sequence, it will read all value available from a min addr to a max addr and will notify the error. 
+in uvm_do_on with, we use the constranint to force only do 1 transaction to the target address, and the IP excute is defined in axi_sequencer[name]
+
+fcpr : is a module from image, used to compress data and later transmit via bus module.
+err_edc : prefix for error rasing have edc, the IP and `bus module need to define EDC module are ... in a file .
+ECM hier and ECC hier are different. each domain will have a ecm hier, does it related to our bus module ? this is same with ecm module in bus ??
+in UT sec/saf , when we want to excute write or read, must have the initiator excute that operation, that is the IP connect to that bus. and we write 1 to a bit position to clear the fusa register.
+in dma, we have sydmac and rtdmac, note the IP connect to bus to issuse the sec and safty condition (in file UT_secure_saf) , how we can toggle some error signal ? tick
+
+
+the note for all team
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc={1f42528c-8819-46ec-ae02-154d99caeb6c}&action=edit&wd=target%28TOP%5BDF2%5D.one%7Cd9b4d806-f5c4-4b2b-9d8b-64badada494f%2F%E2%97%86%20DF2%20PreDFT%20RTL%20Synthesis%20Status%7C3422e505-e68f-407b-adb6-cb55f0a7df10%2F%29&wdorigin=NavigationUrl
+https://c.gotit.vn/VUSqegGM 
+This is also the file to get out the synthesis error.
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/OneNote.aspx?id=%2Fsites%2FExt-ABU-R-CarX5H-with-RVC%2FSiteAssets%2FX5H%20FuncTeam%20OneNote
+we may use .tcl to gen code .v
+
+clock conversion, data width , merge into 1
+switch is too large
+seldmy is put in all targets, bus to bus
+
+the info need to fill done on a module
+register slice, bus wraper, 
+spec : if interface
+
+CF area reduction
+prinn
+If you cant keep the first, you can remove the remain. Every thing is to have 2 side, belong this 2 side we have the behavior for correspondent.
+should do the action in a practice the skill, to not waste the time, for example, if you want to input the word should do in fastly, if you want to remember something, should remain it in a large knowledge and remember later at a time, or something need to bring the honest into the jobs, you can know that knowledge or you can try it now but should spend it later to learn, should do by another method that is faster.
+
+1. modify the sim snapshot,because UT of X5h use snapshot from CT
+2. prerun
+3. create test : gen_env for a bus (dont gen for all because will consume many time), but if we do this, it the routing is a long path, contain many bus, how we can transmit patter for this long path.
+4. to limit the time, in dut/rtl.f.X5H.rvc_UT : with the open module, use RTL, with module no need to use, use BBOX, so BBOX is a module have limited function compared to rtl, if this is true, we see BBOX also declare input/output ports ?
+5. compile
+6. create pat list
+7. run simulate
+8. debug : go into rch3-sim
+
+hide the tool in word online
+
+how to get all info from the output of previous command ? in mobaXterm, we have the full list of running, 
+
+How to percent in vms system
+instance : must like the instance name in module manament list
+TM_X5H/.. : the name of pattern must be the same with the name declared in checklist
+
+May I need to create the module list again ? auto UT will be need for this env ?
+there are some error durring 03_build -all, is recorded in log_03_..
+the 03_buil -all default gen all steps : soma, coverage, slv_add.csv ,.. and gen_env.pl -all (not a specific bus module)
+
+check the TBTOP and found the bus module in module list
+modify into env the files in error 
+current no need for coverage so remove gen_coverage/
+
+cp -rf pat/gen_model_list/foreach_tran_AxiModelUsedList.svi pat/gen_model_list/foreach_tran_ipmmu_AxiModelUsedList.svi /design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env/pat/AX
+
+TBTOP is created true, soma file is also created true
+Have create out the model because Denali compile have done.
+The sequencer for this master and slave are not correct ?
+
+my axi cover lib: many class
+what belong to UVM, 
+how our bus related to CPG, memory, CPU, ram, bus between each other , the registers connect between bus, the module and function inside a bus module, how to inject an error to check the handle of bus when there are errors, 
+the revision between 3754 and 3755 to see the different between 
+
+issuse from meeting
+Denali fatal error 
+mismatch address between active and passive
+axmm awuser[5] must match with awadress [35] ?
+
+hang up the assert reset, wait for a time but there is no response then assert this reset so the transaction is stoped at the middle, the later behavior is not in maintain.
+apb coverage fail, 
+gen apb test
+dummy response return, so when we fix Vcc for axsp and axrt then the request from CPU will stop at these bus module, will not out to fray or cr52 slave.  (here are axsp for fray and axrt for cr52)
+fix isreq_axi_frays = 1 of axsp io file, so it will generate dumy response.
+at master side, we have a pair edc gen and check, also for slave
+
+
+
+help
+memory conf: contact dbsc/axmm/ddr engineer
+set  , regsub, lindex , for , foreach, 
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/top_x5h_sim2.1.0/script/sim_vcs.tcl
+$DUMP, md, ml , initila LBSC area 0 value, 
+proc cmn_time_s  { } {cmn_time {s}}
+proc cmn_time_ms { } {cmn_time {ms}}
+proc cmn_time_us { } {cmn_time {us}}
+proc cmn_time_ns { } {cmn_time {ns}}
+proc cmn_time_ps { } {cmn_time {ps}}
+proc cmn_time_fs { } {cmn_time {fs}}
+
+meeting
+mieruka
+UPF file to build Xprop UPF env
+hang up DBSC bug, two write accesses < 256B the same ECC region, may wait for ECC read complete, eventhough no ECC read occur.
+multibit error when .. off
+respin
+add aditional for CF, need to modify ..
+affect to X5H schedule
+fcpr cache issue , dbsc
+decide to verify DBSC with formal verification to prevent the missing bugs anymore 
+
+detail_report_cov_mst_apb.rpt
+detail_report_cov_slv_apb.rpt
+detail_report_cov_mst.rpt
+these files in Auto_coverage folder.
+
+
+cp -rf $temp/matrix_table.csv ../mst_slv_con.csv
+cp -rf $temp/matrix_table* ../../../scripts/coverage_script/
+
+/design03/rcar_work12/V4L/BUS/users/thiennguyen6/UT/BusUT_v4m_run/work
+
+run UT again for gluelogic - add ecm check , so build the env for this ecm
+sec_saf remove ecm check , so can done immediatedly
+after add -ecm check, we may still remain the old options
+
+modify again the script for 2_div_list
+
+complete for busut axi and apb, the env rcar 12 and $win all run, auto coverage for these env also work
+zsim result : pass for ut_sec_saf
+in abp checklist , current have a line to get the info of the fail pattern , match with what we add.
+
+/design03/sradar_work12/BUS/users/duongnguyen2/04_Verification/02_UT_SEC_SAF/sv/test/test/apb_slave_test_secsaf.svh
+build phase, 
+uvm config db , extend to .. ?, uvm_component_util(name of test)
+
+if uvm_config_db is for register a class object to access via many testbench, so the whole env have only 1 table for reference as general, the procedure we need to register is what ? set and get are static function ? use :: to access via this scope ? turn on functional coverage for an agent ? set a value to 1 , why ?
+https://www.chipverify.com/uvm/uvm-virtual-sequencer
+want to have control over all sequencer from a central place . 
+
+run UT pattern with log file, get the UVM error if have issuse related  to fusa register . get z_get.. to get the pass info
+need to dump wave ? if need, how to check ? open the fusa register of each pattern to get the info about the register error ?
+there is no the different between old and new env.
+log file to store the error related to UVM eror
+check pass base on the UVM _ error word
+-> need to run as normal
+
+error mode and normal mode: related to ecm ecc hier .
+in the matrix table for apb with 14 file convert we can run separately and get the result table with only 1 file.
+
+vi f2 f3 -p
+use 5 bit, 4:0 read 5 bit latest
+- is known as the 32 RW
+see in _reg.h and in the code we also seen the bit need to assign
+compile .. , bbox 
+----Khow
+/shsv/ipw1/BUS/users/thiennguyen/BusUT_v4l_run/work/axi/AXHC__AVB0MX/rch3_sim/xrun.log
+
+reset assert at the middle time of transaction, so the transaction not completed 
+run CT for dedicated server, also used for debug
+
+run again all with master-rtl, build with IO file new , will there is no error and no hangup in this case.
+with the old one, confirm there is an error when access to slaves are removed.
+use waveform for this case. see the response of the slave when it is accessed.
+
+
+http://masl002.eda.renesas.com/issues/195984#change-1381854
+
+/shsv/ipw1/BUS/users/thiennguyen/BusUT_v4l_run/work  : axi wave form -wave_all
+/design03/rcar_work12/V4L/BUS/users/thiennguyen6/UT/BusUT_v4l_run/work   : apb -wave_all
+--- old env
+
+io file have collected at $win
+http://masl002.eda.renesas.com/issues/195983
+http://masl002.eda.renesas.com/issues/195984#change-1381854
+https://www.chipverify.com/uvm/uvm-virtual-sequencer
+https://www.chipverify.com/uvm/uvm-config-db
+
+https://renesasgroup.sharepoint.com/sites/R_CarDesignDocument/_layouts/OneNote.aspx?id=%2Fsites%2FR_CarDesignDocument%2FShared%20Documents%2F00_Information_Sharing%2FR-Car_Design_Document
+https://renesasgroup.sharepoint.com/sites/R_CarDesignDocument/_layouts/OneNote.aspx?id=%2Fsites%2FR_CarDesignDocument%2FRCarDesign%2F00_Information_Sharing%2FR-Car_Design_Document
+
+need 7 wave separatedly for each case
+
+/design03/sradar_work12/BUS/users/duongnguyen2/04_Verification/03_UT_ECM_ECC_Hier/SRADAR_BusUT_Env_ECM_ECC_Hier
+
+
+the way to assign the hash array
+@{$hMst{aximp0__fbabusir3m}->{Slaves}}      =  @aximp0__fbabusir3m_slv;
+
+/shsv/ipw1/BUS/users/thiennguyen/BusUT_v4l_run_new/BusUT_v4l_run/TBMAKE/V4L/UT_address/UT_address.pl
+read from excel file and print out the address range of each if_interface of each protocol
+convert the address value to hex value
+get the value of a cell in excel
+create a subfunction and pass the parameter for it
+sytem command
+prinf with condition
+
+
+/shsv/ipw1/BUS/users/thiennguyen/BusUT_v4l_run_new/BusUT_v4l_run/scripts_v4l/gen_constraints.pl 
+This is a complete code to access to a table has the feature: 
+open (CSV1, "../TBMAKE/$product/mst_slv_con.csv") or die "Cannot open file mst_slv_con.csv";
+
+my %slv_info;
+my %mst_slv_matrix;
+my $lineno = 0;
+foreach my $line (<CSV1>) {
+  chop $line;
+  my @arr = split (/,/,$line);
+  my $j = 0;
+  foreach my $row (@arr) {
+    if ($lineno == 0) {
+      $slv_info{$j}{name} = $arr[$j] if($j>0);
+      print "debug $slv_info{$j}{name} This will output the name of row header";
+    } else { 
+	  $mst = $arr[0] if($j==0);
+	  if($j > 0){
+		  if($arr[$j] eq "Require"){
+			  $mst_slv_matrix{$mst}{$slv_info{$j}{name}} = 1;
+        print "debug $arr[$j] this will output the Require string in access matrix  , $mst may return the name of master in table     "
+		  }else{
+			  #Do nothing
+		  }
+	  }
+    }    
+    $j++;
+  }
+  $lineno++;
+}
+close CSV1;
+
+list 59 60
+$rcar2/04_Verification/01.CT/
+/shsv/ip20/DBSC/users/dungphan/04_X5H/02_CT/top_x5h_sim2.3.0/top_x5h_sim2.3.0_CS/top_x5h_sim2.3.0/sim_lp5_6400_2ch/work_x5h_cr52_lp5_6400_mm_dbsc_2ch_20231223_040709/waves.vpd
+
+Collection V4L data
+https://renesasgroup.sharepoint.com/sites/team_RCID1_section/_layouts/15/Doc.aspx?sourcedoc={aa1474b7-3926-4e03-bcad-e1014937104b}&action=edit&wd=target%28V4L.one%7C823ed9d3-af1f-4056-8091-2a43118f2234%2FSummary%20status%20%28231225%5C%29%7Cce292970-cbd0-4e60-a424-e64a5349db0d%2F%29&wdorigin=NavigationUrl
+
+
+pere, top, perewrt, 
+https://verificationacademy.com/forums/t/uvm-error/33733
+https://www.linkedin.com/advice/3/how-do-you-report-analyze-uvm-test-results#:~:text=1%20UVM%20Report,-The%20UVM%20report&text=It%20consists%20of%20different%20types,UVM_ERROR%2C%20UVM_WARNING%2C%20and%20UVM_INFO.
+http://masl002.eda.renesas.com/news/1978
+http://masl002.eda.renesas.com/issues/184922
+
+routing policy: direct path, will focus to when we feel need to know the path of data from a master to a slave .
+known as bus and hier
+
+hier optimization: the info to optimize and 
+
+CF_area_reduction: 
+
+power domain :
+
+method to learn
+consume the time for only 1 job at a time, that make the qi float in your head in a noron in head, we can control qi at that time also . Remember the purpose of is to control qi , if we not control and follow the nature , not effecc to qi that will make our in force mind. 
+when store in the word, and read again, should remove the have read content , this will reduce the time when we read again later . Also need to consider again about making the paragraph and use ?? to make the content can read later about, if we should to diff these case ?
+when store, we can store at both note and word online, use the different mark but should remember to collect them again to refer later in future.
+Need to have the impact to that operation, for the normal case without the review in the future we can talk or make a behavior by action to remember temporarily.
+we need to devide into dedicated knowledge and the general knowledge, the general knowledge is to use tool, script, RTL, systhesis , DFT check, HDLC check, these are the common knowledge for , and with each knowledge dedicated, we need to focus on the detail later with the function of that module. Also when reading we devide into 2 kind, the knowledge need to remember and the knowledge need to know it is exist , and we just know at that point, the detail info we will focus on later. Also, the logic of a problem need the qi operate , at a time when sit down we just capture the info and can not link the info we see (if we already know and actually understand so we can learn it fast just by a see).
+
+tip
+Get all register info are saving or use the visual editor to select the inner word ?
+https://unix.stackexchange.com/questions/88714/how-can-i-do-a-change-word-in-vim-using-the-current-paste-buffer
+
+on moba, if we can transmit info from a local disk to network disk, then later we will excute that command in linux, and it will base on the different value on a script install by package npm of javascript ?
+use w in vim to capt
+
+Moba local doesn't use csh, use bash shell
+when you need to initial vimrc, put at ~/_vimrc
+https://stackoverflow.com/questions/60931417/where-can-i-find-vimrc-file-in-windows#:~:text=vimrc%2C%20home%3Avimfiles%3Avimrc,%2F%20for%20MS%2DWindows).
+~ also call as $HOME
+current , the "+ register in .vimrc is not working
+use sh conflic with the current code csh in mycshrc
+sh script: also allow source, cd, vim
+
+
+tree -f command 
+find -mmin
+find . ! -name 'file.txt' -type f -exec rm -f {} + 
+%s///gn 
+
+
+rsync -rf --exclude=work
+TM list thÃ¬ nÃ³ giá»ng nhau áº¥y Lam Vo. 
+em táº¡o tÆ°Æ¡ng tá»± cho nhá»¯ng TM nÃ o chÆ°a cÃ³ há» a 
+refs 
+/shsv/ipw1/BUS/users/tuongle/03_Verification/CT/STAT_V4M/AutoCT_Working_Space_2022y_05m_06d_16h_28min_NO_FORCE_SIM3.1/top_v4m_sim3.1.0/testcase/test_stat/stat.reg_access_cr52/bus.list
+
+/shsv/ipw1/BUS/users/toanvo/V4M/CT/node/top_v4m_sim3.7.0/testcase/test_trunk_node/test_anmm_reg_cr7/bus.list
+
+/design03/rcarx5hfed_work12/RTPER/users/hoatuannguyen/02_Synthesis/DF2/RCAR-X5H-N3E_r45967
+
+@build_env 
+
+save_snapshot_trigger { snapshot_path snapshot_name signal_trigger expected_value }
+what is a snapshot, why it contain the signal inside, why we have the expected value in it?
+write an auto script to merge all the file in NOTE folder >
+save_snapshot {snapshot_path snapshot_name }
+the path of a snapshot is ? 
+cp -rf have the remove interpret in this, consider when run.
+-
+Auto run a task when there is a complete signal in a file.
+/shsv/ipw1/BUS/users/thiennguyen/Auto
+
+/shsv/ipw1/BUS/users/thiennguyen/BusUT_v4m_run
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env/03_Build_UT_env.csh
+./scripts_x5h/gen_env.pl  ./TBMAKE/X5H/mst_slv_con.csv
+
+axpere, remove all unecessary files
+compile 1 time, 
+1 mst acceec 1 slv on this module
+
+get all rtl and module list from the success env of pere
+compile at demo env
+create git on the TBMAKE, sv,remove the unessary file
+remove compile for the second time) error ->
+may because I clean so I don't have the data after recompile DUT, so the second run without recompile is not success.
+axi data from a master can access to a apb s
+
+ctt
+get the lower bit of bit pos
+todo:
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/5h_TM/aprt0/OUTPUT/common/basic_macro.equ
+rotate the value but also keep the bit 0 of set bit >
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/5h_TM/aprt0/OUTPUT/aprt0_sfrst_chk_cr52/main.s
+write a pattern base on this code for sfrst>
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/script/gen_pattern_mstp_arm.csh
+code gen pattern: add AMSTP then have a mark to sed later.
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/gen_patterns/script/
+this env is also have enough file to gen. 
+/shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/gen_patterns/multi_gen_pattern.csh
+the code is used to call gen_pattern.csh and transmit other args for MSTP setting.
+the info pattern: use will make o, no use will make # at the beginning.
+rotate instruction>
+https://developer.arm.com/documentation/dui0068/b/Thumb-Instruction-Reference/Thumb-general-data-processing-instructions/ASR--LSL--LSR--and-ROR
+
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/5h_TM/aprt0/
+another env stored for getting the .srp files
+in the info pattern, has the path to rtl file, this is the file will get ecm attribute.
+NOTE: to run paralell the patterns, we need to run on different sim, because if two patterns run on the same work dir that will lead to the wrong and cause error because the vpd file is load overitten together.
+
+kdb dir, FF does not initialize value, scematic check.
+http://masl002.eda.renesas.com/issues/199086
+
+/shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/gen_patterns/
+smalles: apperw2_reg_chk_cr52
+http://172.29.139.78/bus_repo/Design/Tools/DESIGN/BUS_IOGEN/BUS_IOGEN_X5H
+./extract_mpg_mr_reg.py -file RCarX5H_TS_RegisterDescription_Module_Controller_20231208.xlsm  -hier VIPN -mod umfl0
+Command: /shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/sim2.6.0/top_x5h_sim2.6.0/sim_apperw2_reg_chk_cr52/../COMP_DATA/vcs_comp_data/simv +INSTANCE=apperw2 +vcs+dumparrays +TM=apperw2_reg_chk_cr52 -reportstats -ucli -i /shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/sim2.6.0/top_x5h_sim2.6.0/sim_apperw2_reg_chk_cr52/../script/sim_vcs.tcl +ENDIAN=Little +fsdb+max_var_elem=100 +vcs+lic+wait +ENDIAN=Little +FLASH_SETUP_SHORT +DISPLAY_SIM_TIME +tarmacALL +tarmac_on +ds_idle_timeout=1000000000 +FUSE_CLK_PS=400 +LPDDR5 +LPDDR_PRESET_SEL +speed_grades=SG4267QDR -l simv.log
+
+~/script/extract_mpg_mr_reg.py
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/sim/work_apperw2_reg_chk_cr52_20240122_081809
+UCLI command
+https://picture.iczhiku.com/resource/eetop/WYIdejLoweeWUBNX.pdf
+note: use run to continue in ucli
+temp
+refer to $win/temp/0122 to know the case is stopped.
+MDLC24MPDGS20
+
+/design03/rcarx5hfed_work92/users/hieuminhtran/98_CT_verification/top_x5h_sim2.3.0_modify_cr52_33bit/top_x5h_sim2.3.0/sim_lp5_6400_2ch/work_APU_access_DDR_remove_force_20231229_124227/
+the link to spec of module controller
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/Forms/AllItems.aspx?cid=37951bea%2D8a12%2D4396%2Dac89%2D230c61f5a107&RootFolder=%2Fsites%2FExt%2DABU%2DR%2DCarX5H%2Dwith%2DRVC%2FShared%20Documents%2F05%5FLogic%5FDesign%2F052%5FModule%5FDesign%2F02%5FSYSSS%2FTarget%5FSpecification%2FTS%2F018%5FModule%5FController&FolderCTID=0x012000CF35202EC19A824084DD85FCC22477B3
+temp
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.apperw1.busmain.x_apreset_apperw1
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.apperw2.busmain.x_apreset_apperw2
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/testcase/test_apperw2/apperw2_reg_chk_cr52/
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/BUS_TM/axrt/OUTPUT/axrt_sfrst_chk_cr52/main.s
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/BUS_TM/axpv/OUTPUT/axpv_mstp_chk_cr52/../axpv_mstp_chk_cr52/
+/design03/rcarx5hfed_work72/IMP/duynguyen/top_x5h_sim2.5.0/DSP_X5H_RTL/sim_x5h_dspss_grp2_c0_vpx5_intc_vin_vi0_Little/work_dspss_grp2_c0_vpx5_intc_vin_vi0_20240108_203207/waves.vpd
+docc
+scp register controller
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B8AE9E05E-23F9-4AB2-8228-2495790D0764%7D&file=RCarX5H_TS_RegisterDescription_Module_Controller_SCP_20231128.xlsm&action=default&mobileredirect=true
+power structure
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B4E24E7E2-EC1F-4292-9483-0F183B6A6148%7D&file=X5H_power_structure.xlsx&wdLOR=cDDDB841A-63F6-49DC-B85E-2111DA546652&action=default&mobileredirect=true
+power domain structure by excell file
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B03E2AEBF-CCC9-4C61-A9BD-AA73A7A0BFB3%7D&file=X5H_Power_domain_structure.xlsx&action=default&mobileredirect=true&wdLOR=c60D8FE51-0D6F-4F3D-8B15-3B4EEBE73596
+standby controller
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B543CA529-A030-4A81-BBF7-AC47CA693C85%7D&file=RCarX5H_TS_RegisterDescription_Standby_Controller.xlsm&action=default&mobileredirect=true
+doc for standby controller
+https://renesasgroup.sharepoint.com/:w:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7BF2E969F4-F6E5-49C3-91C8-B459179459E1%7D&file=R-CarGen5_TS_017_Standby_Controller_Rev0.30_231020.docx&action=default&mobileredirect=true
+standby controller is the centrall logic controller the related register to sure the operation of power module operate correctly.
+
+rememberr
+- Add SVA into CT env
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/04_Design_Flow/04-06_CT_sim_guide/R-CarS4/R-CarS4_CT_sim_guide.pptx?cid=eb541451-6b13-434f-862d-bea70241647b?web=1
+- IF check and IO file gen, use svn for manage recursive
+http://masl002.eda.renesas.com/issues/185568
+- Synthesis environtment, HLDRC, DFTcheck, RSchain, 
+http://masl002.eda.renesas.com/issues/172279
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/03.Synthesis/RCAR-X5H-N3E/
+
+02092024
+excel is not working?
+https://www.automateexcel.com/how-to/excel-find-not-working/
+https://support.microsoft.com/en-gb/topic/-microsoft-excel-cannot-find-the-data-you-re-searching-for-error-message-when-you-use-the-find-command-to-search-in-a-workbook-c80c10aa-495f-1375-168a-951a3cf4934d#:~:text=Cause,or%20formatting%20from%20being%20displayed.
+how to use vim editor ?
+https://stackoverflow.com/questions/1497958/how-do-i-use-vim-registers
+use find command ?
+https://tecadmin.net/linux-find-command-with-examples/
+
+synthesis
+tcl dictionary
+https://www.tutorialspoint.com/tcl-tk/tcl_dictionary.htm
+compare between setup.tcl between env from svn and env from hoatuannguyen
+$temp/setup.tcl
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/03.Synthesis/RCAR-X5H-N3E/
+
+design repo
+/design03/rcarx5hfed_work11/BUS/users/hungcao/repo/Design/Tools/DESIGN/Gen_BUS_Routing_path/
+gen bus routing path
+from a master to a slave have how many bridge, 1 or 2 or nothing, the final result is :
+/design03/rcarx5hfed_work11/BUS/users/hungcao/repo/Design/Tools/DESIGN/Gen_BUS_Routing_path/PathEDC_all.xls
+a master connect with a utlb is different with a normal master ?
+what is the case we have the second bridge ?
+that is when the first is to convert x2x, the second is to convert apb , the final slave use apb protocol, or the first x2x and the second also is x2x.
+
+register in axvip- : axvipAPB.v
+$temp/regAPB.vim
+busmain_wrap.pv
+
+sfrst.vim
+$temp/sfrst_pattern.vim
+important
+rtl2map eco formaly verification
+http://masl002.eda.renesas.com/issues/201874
+
+vmc jenskin flow
+https://renesasgroup.sharepoint.com/sites/R_CarDesignDocument/Shared%20Documents/02_Design_rule/02_Logic_design/01_VMC/Improve_VMC_flow.pptx?web=1
+why related to sram collection ? 
+module desigenre and top team ?
+the final purpose is to release the new lib.
+this is a step for synthesis guide
+Could you prepare for V4L Synthesis guide [msteam]
+
+tip
+change with return in vim
+%s/V2\:/\rV2/g
+turn on all command have input
+q: enter
+
+practical
+Also, need to be careful when use macro, should be the macro is independent about the reg of before and after this macro.
+Build a habit to use git when writing code, when there are something there are many change durring the time then need to have a way to manage the version.
+
+rs_chain :
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B4CA2F95D-BF7A-49DD-98FB-938874711B04%7D&file=RCarX5H_MSTPRST_specification_format_axdsp_axvi.xlsx&action=default&mobileredirect=true
+handshake req/ack net name.
+rs chain connection
+https://renesasgroup.sharepoint.com/:p:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B32EF1E28-B7BC-470C-A8FC-829B23BA5994%7D&file=sram_powercontrol_gen5.pptx&action=edit&mobileredirect=true
+this is port from shxsim
+/shsv/ipw1/BUS/users/thiennguyen/temp//port_shxsim_aprt0
+
+
+ctt
+the bus_repo used to update CT
+http://172.29.139.78/bus_repo/Design/Tools/VERIFICATION/AutoCT_Tool/AutoCT_X5H
+rcar bustest item
+http://masl002.eda.renesas.com/projects/x5h_verification/repository/changes/02_CT_testitem/rcarx5h_bus_testitem_CT.xlsx
+v4m bustest item
+http://masl002.eda.renesas.com/svn/rcarv4m_verification/02_CT_testitem/
+smmu ct checklist
+C:\Users\a5144834\Downloads\rcarx5h_SMMU_common_checklist.xlsx
+
+env of coleaguage member
+/shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/sim2.9.0/top_x5h_sim2.9.0/
+
+
+INTC
+x5h intc interupt guideline check
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B912CEF30-7037-4B10-BB0C-5F3A3658EB46%7D&file=X5H_INTC_guideline_check.xlsx&wdLOR=c23FCC232-C1D1-4143-A001-9C71AF3C856D&action=default&mobileredirect=true
+common checklist
+[[X5H]_Verification] News: [Update] Common_checklist_INTC  2024/01/11
+
+
+ECM
+ecm checklist
+[[X5H]_Verification] News: Release Common_Checklist_ECM <v2.0> 2024/1/11
+
+DMAC
+[[X5H]_R-CarX5H] News: [DMAC] Common Checklist
+
+SMMU
+[[X5H]_Verification] News: [Update] Common_checklist_SMMU 2024/02/01
+
+tmp
+/design03/rcarx5hfed_work12/RTPER/users/trangkieuha/03_Simulation/02_CT/top_x5h_sim2.11.0/sim_intap/INTAP_TM/002_channel_Realtime_soft_reset_check/work_002_channel_Realtime_soft_reset_check_20240220_155022/
+
+module management sheet
+http://masl002.eda.renesas.com/svn/rcarx5h/common/rcarx5h/trunk/VNET/MASTER_MOD_LIST/R-CarX5H_Module_Management.xlsm
+
+rememberr
+about the way to trace bug
+- Open the schematic and trace gate cell
+- On the simulation phase, use command to trace info
+- Open verilog code, understand the way code compile to circuit.
+- Open waveform, trace base on the protocol rule.
+
+master rtl
+http://masl002.eda.renesas.com/svn/rcarx5h/common/rcarx5h/branch/DF2/MASTER_RTL/
+
+what is kill and killall to kill a process
+https://www.linode.com/docs/guides/use-killall-and-kill-to-stop-processes-on-linux/
+https://www.heatware.net/linux-tips/kill-all-instances-of-script-processes/#:~:text=%E2%80%9CKillall%E2%80%9D%20and%20%E2%80%9Ckill%20%2D,)%2C%20forcing%20an%20immediate%20shutdown.
+
+commondir
+http://172.29.139.78/!/#bus_repo/view/head/Design/Tools/VERIFICATION/AutoCT_Tool/AutoCT_X5H/gen_patterns/script/gen_pattern_master.csh
+using vlookup
+
+dir for desktop
+/drives/c/Users/a5144834/Desktop
+/drives/c/Users/a5144834/Renesas Electronics Corporation/R-Car X5H with RVC - Documents/02_Specification/BUS
+
+list of all test patterns
+/shsv/ipw1/BUS/users/thiennguyen/temp/pat.list_bak
+
+https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
+
+0324
+
+pythonn
+/shsv/ipw1/BUS/users/thiennguyen/02_Two_months_training/05_Tessolve_verification/TESSOLVE_DV_Training/uvm_ex_repo/6.INT_FP_MAC-master/utils/generate_golden.py
+/home/u/thiennguyen6/script/git
+generate the expected result on a format and output to .txt file.
+
+tcll
+\\rvc-vnas-01.rvc.renesas.com\Training\New_Engineer_Training\HW_Design_Practice\String_Processing_Language\TCL\TCL_slide_2023_Sep.pptx
+this is the path to tcl file
+
+/shsv/ipw1/BUS/users/thiennguyen/TCL_env/Practice_DC/read_design.tcl
+/shsv/ipw1/BUS/users/thiennguyen/TCL_env/Practice_DC/demo.tcl
+open a file in tcl and write out the content if a condition is true.
+(the file path is unknow !)
+ref doc
+\\rvc-vnas-01.rvc.renesas.com\Training\New_Engineer_Training\HW_Design_Practice\String_Processing_Language\TCL\TCL_slide_2023_Sep.pptx
+
+usr_sim.tcl from intc pattern
+/design03/rcarx5h_mst_rvc/VNET1.0/MASTER_TM/INTC_X5H_RTL/INTC_sample_pattern/Realtime_interrupt/tcl_vcs/usr_sim.tcl
+dump a signal outside
+
+if elseif statment in tcl
+
+set fp [open "./employee_name.txt" r ]
+set file_data [read $fp]
+close $fp
+set data [ split $file_data "\n" ]
+
+proc employee_name_check { code  type_name } {
+  global data
+    foreach line $data   {
+      if {[regexp $code $line]} {
+        if { $type_name == "first_name" }  { 
+          puts "[lindex $line 3 ]"
+        }  elseif  { $type_name == "sub_name" }  { 
+          puts "[lindex $line 2 ]"
+        }  elseif  { $type_name == "last_name" }  { 
+          puts "[lindex $line 1 ]"
+        }  elseif  { $type_name == "full_name" }  { 
+          puts $line
+        }  else  {
+          puts "Please input the correct argument"
+        }
+      }
+    }
+}
+
+
+
+http://edasite.eda.renesas.com/cgi-bin/lv1ww/tools/cgi/to_sel_menuframe.cgi?lang=en
+
+
+grep -R 'Exception' test
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.1.0/script/
+/shsv/ipw1/BUS/users/thiennguyen/01_trainning/VI_Script_language/Cshell/cshell_example/
+
+current tasks
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/temp/
+the dir where the script called
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/demo_TM/aps0/
+the control script 
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/script/control.csh
+
+csh
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/EDC_check/main_check.csh
+/shsv/ipw1/BUS/users/thiennguyen/06_Code_example/GetresutlfromlogfileafterrunUT.csh
+/shsv/ipw1/BUS/users/thiennguyen/06_Code_example/access_many_arguments.csh
+
+combine find command with grep 
+https://www.baeldung.com/linux/grep-filtered-files#:~:text=In%20the%20Linux%20command%2Dline,searching%20some%20text%20in%20all%20*.
+
+use sys in python
+https://www.analyticsvidhya.com/blog/2024/01/command-line-arguments-in-python/
+
+
+pythong
+import sys
+mydata = sys.argv[1]
+myarray[4] = str(myarray[4])[3]
+/shsv/ipw1/BUS/users/thiennguyen/02_Two_months_training/05_Tessolve_verification/TESSOLVE_DV_Training/uvm_ex_repo/6.INT_FP_MAC-master/utils/generate_golden.py
+
+vimm
+https://superuser.com/questions/410982/in-vim-how-can-i-quickly-switch-between-tabs
+(important)
+tip : how to make vim effect vimrc ? we mks to save to a folder and then load again to make that effect.
+
+linux
+https://blog.ycrash.io/2020/12/30/how-to-kill-process-in-unix-linux/
+file:///Z:/Basic1/Unix/Unix_Tutorial/unix5.html
+
+useful script
+grep from a file to the other
+/shsv/ipw1/BUS/users/thiennguyen/04_Exam/grep_from_a_file_to_the_other.py
+
+shell
+/shsv/ipw1/BUS/users/thiennguyen/02_Two_months_training/05_Tessolve_verification/TESSOLVE_DV_Training/uvm_ex_repo/6.INT_FP_MAC-master/script.sh
+
+bjobs, tip , script
+match the line with test and job
+job .*\n.*\n.*\n.*\n.*\n.*
+
+extract the job with id
+%s/^\s\+//g
+%s///g
+Concatenate job together , run this command 3 time
+:%s/^\(Job .*\)\(\n\)\(.*\)\(\n\)\(.*\)\(\n\)\(.*\)\(\n\)\(.*\)/\1\3\5\7\9/g
+:v//d
+Remove all except id number
+%s/\(Job <\)\(\d\+\)\(.*\)/\2/g
+
+https://stackoverflow.com/questions/45426695/searching-for-particular-files-in-a-directory-non-recursively-using-find-aix
+find . -name . -o -prune -type f
+
+
+heree todo
+join these course to learn about the security
+Security technical basic course
+
+meeting 0415/thiennguyen6 owner
+the tip/trick for save,restore the wave.
+[CT] Apply save & restart feature for shorten debug and regression time. team_x5h
+#see all the appearance durring the long time developing of the chip
+
+The asbd_global notebook, have record many issue related to many team. Should download to see .
+https://renesasgroup.sharepoint.com/:o:/r/sites/ASBD_ASOC1_Global/SiteAssets/ASBD_ASOC1_Global%20Notebook?d=w2f7e9f5e52294087a850cc6a1a3574b7&csf=1&web=1&e=13Efpy
+
+
+#remember this site, collect all the bugs durring a long time of design chip, from many team, hier_synthesis status, the shedule also
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/X5H%20collection%20site/Forms/AllItems.aspx?FolderCTID=0x01200063E52726CD164F419C3BB5C23B9756B7&id=%2Fsites%2FExt%2DABU%2DR%2DCarX5H%2Dwith%2DRVC%2FX5H%20collection%20site%2F01%5FFE&viewid=c3457ced%2Db9e3%2D417e%2D9eb0%2D673ce2521a3d
+
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B809503EC-4D6F-4ADD-A79F-27548C6D1BED%7D&file=R-Car_X5H_CF_hier_synthesis_statistics.xlsx&action=default&mobileredirect=true
+some knowledge: how to cal the gate count, get info from final.rpt, area comparison. The list of person incharge.
+
+
+#priority
+write a script to auto add the new info of all note into a file so we can search when need.
+read about VCF using
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FExt%2DABU%2DR%2DCarX5H%2Dwith%2DRVC%2FShared%20Documents%2F01%5FDevelopment%20Management%2F070%5FVCF%2F02%5Flecture%5Frecords&FolderCTID=0x012000CF35202EC19A824084DD85FCC22477B3
+write a script to check the content of a file (that file is auto added more info every time) and subspend or do another action when there is something un-normal during simulation phase.
+create a wave to source any tcl file when need.
+
+#remember
+https://resource.renesas.com/lib/eng/e_learnig/h8_300henglish/refer/t01/bf01.html
+
+#Design
+get the RTL from many phase DF, then vimdiff to see the different via many phase, from this view, also vimdiff the pdd file.
+Just begin from the basic of a FF, a reset, a power, a clock, a propagation from a FF to an other FF, the voltage provide for that FF (related to multidriven issuse), take care the operation of a basic FF.
+In a RAM, ROM macro, what it is inside ? it must be have something before compile , code ? or cell ?
+a script to see the input, output of rtl is the same with IO line of IO file.
+more about ifcheck and io file
+https://renesasgroup-my.sharepoint.com/:v:/g/personal/duong_nguyen_zj_renesas_com/EW3vMgjpzSpCsRiOQef4pJgBGiQYaoz-El5GDc8owRWTYQ?referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view
+
+#script
+learn again VIM
+/shsv/ipw1/BUS/users/thiennguyen/01_trainning/VI_Script_language/VIM/Output/37G/Thien_Nguyen/Exercise3.txt
+https://stackoverflow.com/questions/25372471/viewing-enum-names-in-vcs-ucli
+https://www.geeksforgeeks.org/run-one-python-script-from-another-in-python/
+(running another type of script in python, another question: how to run with arg, because currently these code only not have args -> solve: use method 3 with os.sytem)
+a command that I only keep the pattern I have found
+complete this script
+/shsv/ipw1/BUS/users/thiennguyen/04_Exam/delete.csh
+Complete agan the code for delete all remaining folde except 1 (note.docx)
+#doc
+rtl control rule (post dft rtl where it is put , predft, user dft , ijtag, design phase)
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/06_Implementation/DFT/02_DN1/022_Implement/01.DesignFlow/R-CarX5H_RTL_Control_Rule.pptx?web=1
+
+#verify
+Build a normal dut and have the testbench related, normal testbench and uvm testbench.
+https://verificationacademy.com/forums/t/smallest-program-code-using-uvm/34260/5
+(all resource about building a simple env)
+https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-clocking-tutorial/
+(important)
+run a bus, open wave and open all mm for seeing the repeated.
+search on redmine to know more about apreset spreset ..
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7BB255AC13-0FC0-4F98-A182-C3E5F0BA87A9%7D&file=RCarX5H_MSTPRST_specification_format.xlsx&action=default&mobileredirect=true&wdLOR=c6A780AF1-4D38-4DC2-8545-3B66289A063C
+
+#infree
+https://askubuntu.com/questions/779476/trying-to-use-the-move-mv-command-but-i-get-no-such-file-or-directory
+https://unix.stackexchange.com/questions/251833/mv-no-such-file-or-directory-error-even-though-directory-most-certainly-exists
+try to write a file to system folder
+https://unix.stackexchange.com/questions/77007/mv-cannot-stat-no-such-file-or-directory-in-shell-script
+shell script - globbing
+https://www.geeksforgeeks.org/mv-command-linux-examples/
+mv command with many options -f -n -b
+https://www.mkssoftware.com/docs/man1/glob.1t.asp
+use glob to match with a specific file name
+
+#theory
+All doc on renesas document
+
+#synthesis
+with a normal rtl, understand, synthesis to gate, see the gate on tool, then make more contranst and synthesis again to see the affected, try to move the cell on layout to get timming report error, and how to reduce again.
+
+learn the way to trace x value 
+http://masl002.eda.renesas.com/issues/205848
+use verdi to trace this issuses
+
+Ecm control : the bus will output this signal, the ecm central will capture and record into its register. Will we the ecm error = | .. in the rtl of bus moduel ?
+# new quality letter
+https://renesasgroup.sharepoint.com/sites/R_CarDesignDocument/Shared%20Documents/Forms/AllItems.aspx?xsdata=MDV8MDF8fGJmOTk2MDJkMGNhNjQ0Nzk1MWU2MDhkYjljOTQ0ODQ2fDUzZDgyNTcxZGExOTQ3ZTQ5Y2I0NjI1YTE2NmE0YTJhfDB8MHw2MzgyNzU5MzI4ODQ3MTgwNTR8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxMMk5vWVhSekx6RTVPamswTVRSaU9XUTJMV0ptTkRRdE5HUmlOQzA1TkRsbExXRTVOVGc1WTJRMlpUZGhNMTlpTURFM05HRXlaUzFtWVRGa0xUUmlaakF0WWpCaU1DMW1OemRrTVdFMU1XRTNNV05BZFc1eExtZGliQzV6Y0dGalpYTXZiV1Z6YzJGblpYTXZNVFk1TVRrNU5qUTROemcxTnc9PXxiYmIwMTk1ODE2YzA0OGEyNTFlNjA4ZGI5Yzk0NDg0NnxkZWM5M2JhNDIwMDg0N2U3YWZhZDY0NDA3MWU2N2Y2MQ%3D%3D&sdata=MnJPWk9VUEFMdmgxUjVoVHBIdFZaNDdiQXNiNTlhOWlzN3lHdVNvTEFiOD0%3D&ovuser=53d82571%2Dda19%2D47e4%2D9cb4%2D625a166a4a2a%2Cthien%2Enguyen%2Ect%40renesas%2Ecom&OR=Teams%2DHL&CT=1710994320223&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDAyMTUyODYxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D&id=%2Fsites%2FR%5FCarDesignDocument%2FShared%20Documents%2F01%5FGuide%5Fdocument%2F22%5FQuality%5FNewsletter%2FNewsletter%5Farchives&viewid=bce7b554%2D961d%2D475a%2Db07d%2D20c65045f8c2
+
+running
+the following can be traced again and it relate to design phase and checker
+When run tessentDRC, when we know it is done ?
+How to set clock group in setting flexnoc ?
+
+the dir store the pattern for 
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/7_bus_normal_TM/
+observer the pattern are running, now is running 4 pat
+
+run 4 bus aprt0 sfrst, axhcn axad axmm2 standby on sim3.1
+# increase the wave of DVE inssertion
+/shsv/ipw1/BUS/users/thiennguyen/temp/DVEfiles/mytcl.tcl
+
+heree file
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/X5H%20sharing%20with%20RVC%20Temporary/05_Logic_Design/02_SYSSS/02_SYSC/material/ADVFS/V4M_CT_verification_result.xlsx?web=1
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/02_Specification/BUS/Gen5_SrcID_list.xlsx?web=1
+
+https://pythonexamples.org/python-if-and/
+use and condition in python script
+
+https://www.educba.com/string-array-in-python/
+append an element to an array
+
+https://phoenixnap.com/kb/python-adding-to-array#:~:text=Add%20one%20or%20more%20elements%20to%20an%20array%20using%20the,s)%20append%20to%20the%20end.&text=Both%20arrays%20use%20the%20same,numbers%20to%20the%20existing%20one.
+create an array of specific type
+
+https://www.freecodecamp.org/news/python-switch-statement-switch-case-example/
+swith-case and if elif condition in python script
+
+https://renesasgroup.sharepoint.com/:p:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B32EF1E28-B7BC-470C-A8FC-829B23BA5994%7D&file=sram_powercontrol_gen5.pptx&action=edit&mobileredirect=true
+sram rom power control
+reference for apu
+/design03/rcarx5hfed_work12/BUS/users/hungcao/04_Verification/top_x5h_sim2.11.0/top_x5h_sim2.11.0/testcase/sample/apu_interrupt_request_mfi_atruong_2_mod/print_signal_value.tcl
+/design03/rcar_work11/V4M/RTPER/nhantrongnguyen/03_Simulation/02_CT/top_x5h_sim3.3.0/SAVE.vcs_lp5_6400_2ch_fixbus_fixdbsc.RTDM_TM.init/
+
+0412
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/top_v4m_sim3.15.0/testcase/test_intc/axrt_INTC_chk_cr52/tcl_vcs/usr_sim.tcl
+
+use this link to open all file we have open recently, we also can open outlook from this link
+https://www.office.com/launch/excel?auth=2
+
+heree have_reviewed
+
+old
+firewall_rtl_gen.pl 
+firewall_rtl_gen.pl -f input/firewall.cfg -t 1
+
+script common
+/shsv/rcar_imr/common/01_script/
+
+convert to linux and window
+sed -i 's/rvc-vnas-01/rvc-vnas-01.rvc.renesas.com/g' /shsv/rcar_imr/common/01_script/disk_mapping_linux_windows/user_db/thiennguyen6/covert_link.csv
+to convert to window:
+sw "mydirectory"
+to convert to linux
+sw mydirec
+notice: TO use this tool, dont add the space in between of file names.
+
+
+this is common work 
+/common/work/thiennguyen6/
+
+jira
+indirect: meeting
+non-working: 
+self: 
+
+bus ut video
+
+
+rtl programming ex2
+principal:
+To trace this error, we have two factors: the time (next testcase is the same with previous testcase), the space (how mny tyep of test cases)/
+Count up and stop 2'b11
+xor gate and trigger to buffer output
+DUT have get 01 00 10, so minimum is trigger
+
+error:
+dut is 0 when there is req ==1
+that means the out_lowest is 0 req
+not reset all register
+
+How to run CT in an environtment
+The workflow of gen pattern, the meaning of each pattern.
+How to compile a pattern to asm code
+CT checklist items
+common checklist
+
+*
+read the excel file from perl
+
+s/^/#
+
+
+
+*
+how to copy to clipboard in VIM
+https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim#:~:text=In%20vim%20command%20mode%20press,and%20CMD%20%2B%20v%20to%20paste.
+https://www.google.com/search?q=how+to+copy+entire+content+from+vim+to+clipboard&oq=how+to+copy+entire+content+from+vim+to+clipboard&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTE2Njc5ajBqMagCALACAA&ie=UTF-8
+https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
+
+*
+Hibernate PC
+It help PC start where they come, this save the app runnign in ROM instead of RAM.
+When leave for several of hours, but still want to keep apps, this is a good choice.
+Hibernation harm PC:
+Yes, because hibernation is very stressing on the hard drive.
+
+Basically what hibernation does is to store a sort of snapshot of the system on the hard disk, nowadays weâ??re talking about several GBs of data and doing this sort of memory dump, which is a forceful writing of such a big amount of data in a few seconds, is not doing anything good to the hard drive in the long run.
+
+Better not abuse of this function if thereâ??s not a specific need, if you use a Linux OS with a SSD, the power up and down take less than a minute, making hibernation mostly useless, unless you have to keep open a lot of programs.
+
+haved remove Auto_coverage to $win, mv again later when sim axi
+ from 8:00AM@Dec. 16 to 8:00AM@Dec. 17. : not access to svn 
+
+copy the pattern_list_gen and pattern_list_gen_apb from the v4m to v4l to run for the case have glue logic, also for copy the mst_apb_tabe.csv and mst_table.csv for get the require to run.
+later date, when need to gen again the constrain, go into script_v4l, modify gen_env , replace gen_all to gen_constraint.
+to add wave, run 2_div.. -wave to gen list with waveform, no this option not available
+run again for these cases: the glue logic of master and slave, the fail value in checklist old, the dbsc0 access slave in exception.csh, the diffrence pattern list between old and new after run line 179 at Auto_UT.csh
+AXRS__AXCCMX 
+AXRT__CSDE2MX
+AXVIP0__DULMX
+
+master gluelogic itself can not make transaction and send to slave glue logic, the simulation is only for the cases with master is having.
+keep the old matrix table from v4m , no need to build the new one, remove the patterns started from the master are glue logic
+tip
+cannot stat of the coppy command tell that the file need to coppy not exist.
+
+when changing a Auto coverage folder, need to change in 2 places, the auto_cov.csh and the file mk_rslt_table.pl in the INPUT/script/mk_re.. , then this file will copy out to the TBMAKE/V4L/ 
+
+
+when input to bus_test_items, the input order is different, 11 40 -> 13 - 38 + 4 ending row. 
+
+use man to know more about a command.
+vimdiff man  
+
+mv man
+
+my note
+How to get cov_work in the pattern success ?
+If I have run success the compile, how I can reuse it with the same pattern withthout rerun again ?
+commonn
+what do you know about lib ?
+In lib there are two types: the lib will refer other lib until it found the root code, this make every thing clear. the other type is lib refer to other lib but there is no final founding, we need to import the lib dir to the tool durring the running.
+About RAM, we have TSMC, also ROM, these are the special part in a chip that there is no code rtl but macro. When we use ram or rom, we link to a macro, not a rtl code.
+in lib.f.X5H.dut. , we use -v for link rtl file, -y for folder, these are called lib that mean will there are something will call it durring running.
+in Flexnoc gen for axmm, there will axmm0 and axmm1, all they are built from many smaller modules, the big call the small until all are clear.
+in the lib, can not add more or lack lib.f.x5h. , if not there will be error during running process.
+the knowledge I don't understand anything ?
+https://www.doulos.com/knowhow/fpga/what-does-librarypackage-x-do/
+http://www.pldworld.com/_hdl/2/_ref/se_html/manual_html/c_vlog2.html
+http://www.pldworld.com/_hdl/2/_ref/se_html/manual_html/c_lib5.html#181445
+https://groups.google.com/g/comp.lang.verilog/c/IfHtBawkbqE
+https://people.ece.cornell.edu/land/courses/ece5760/DE2/tut_lpms_verilog.pdf
+tessolve
+how to verify CPU data forwarding. ?
+
+common
+
+QOS
+If I have qos controler, I need to monitore the time of each slave is capturingl or transmit the data, the bandwith between require and are in free space, how we allocate in bus ? if we have allocate in bus, then if there are using exceed this limit then we must have a machanism to control, but how ?
+edc
+if we need to insert the error injection , how we can do ? enable a register and then see import the error in a port ?
+
+
+
+
+open the need, ignore the undeed
+
+so to add a new class of apb, we add the foreach_tran_apb_ax..._seq in my virtual sequence lib apb.sv and add new class in apb/test with the data want to raise to a specific slave.
+
+model_info : glue logic
+my_axitranscion data: have add 
+remove coverage axi for these cases.
+
+
+in all files we only have axi access to apb at sv/test/apb_test , 
+axi model access to slaves , 
+
+about coverage, it will get follow the axi master used list
+if the master is used, it will get cov of all slave that in the require matrix , the generatte fucntion will get path to that master and create path. with each clk raising, and the rready, rrestp valid matchin it will gen voc
+
+defautl the bs after compile will get script need to run, svlib (of cadence) , uvm test name
+/shsv/ipw1/BUS/users/thiennguyen/BusUT_v4l_run_new/BusUT_v4l_run/sv/test/my_axi_seq_lib.sv
+with each transaction from axi master it will call this code, line 213, dump to log file
+/design03/rcarx5hfed_work11/BUS/users/COMMON/VNET/MASTER_IO_IFCHK/u7800haxdsp0top0.io
+
+
+heree ct
+ucli:
+trigger event when there is x value, create noise signal, case hard to raise.
+create input, usually it is bootcode and pin md..
+display.
+
+the batch file will store all testcase need to run and may have the re_compile requirement
+p42 is the root for all env
+test.ssc.l : controll pin of chip, run time, the address need to dump
+tm testcase pattern
+fusa: check parity signal (university) adn trig the reset module.
+sva and ucli: to avoid seeing on wafeform
+sometime the env is wrong, our pattern is correct
+judge.sh if fail_flag = 0, -> Pass -> ..
+get the old testcase from previous env and input to new env, may have bug.
+common/app is a location for get tools.
+3A
+long signal -> detect only 1 cycle
+setup ecm_ctrl =1 and ecm_tgtr = 1 to export error
+the error is only assign to 1 bit in this reg 32 bit
+ecm_ctrl -> 1 first then to error inject
+there is a addition reg must enable first
+COMP_DATA, 
+du -sh ,folder.
+in a test cade
+ram.32
+tets.ssc
+sim4.3 and tm.list
+.pl : final state to submit
+boots and makervc
+lgr ram.m32
+(remove addtional folder before run the new command or run new test case!cd )
+Exercsie 2 is just a a part of code
+xprop is use to indentified x value when use condition
+
+
+heree frequent
+0301
+How to sort all folder follow the size ? 
+To only submit the patterns with compile success (have large size)
+find . -type f -ls | sort -r -n -k7
+this list all folders but also recursive
+
+du -sh * 
+this list out but there is not the order
+ls -lS * 
+this work but also for the files inside the folders.
+ls -lS X5H_TM/
+this work but cant sort the folder inside, it just list all folders out.
+The pattern list for success build
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/pat.list
+gen pattern folder
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/
+the pat list for actually run CT
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/pat.list
+checkout
+/design03/rcarx5h_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/common/MUVE_TOOLS/VMS/TOOLS/create/checkout_muve.csh
+the place where master rtl of each sim version running
+/design03/rcarx5h_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.9.0/MASTER_RTL/
+the rtl list of all bus in sim 2.8.0
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/rtl.list
+the pattern success that we will use to run CT
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/pattern_success.list
+the list of bus we run (update 0307) 
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/pattern_actual_run.list
+a bus module for reference
+/design03/rcarx5hfed_work11/BUS/users/COMMON/VNET/MASTER_RTL/u7800haprt00top0.v
+a list of full register and the bus related
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/script/register_description_full.list
+where you can get the html reg files
+DESIGN/BUS_RTLGEN/X5H/iRTLgen_X5H/OUTPUT/busreg/axhcn_reg.html
+the file in svn of bus
+/shsv/ipw1/BUS/users/thiennguyen/busrepo_design_tool.list
+all the bus are hangup when running mstp
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/env/00_Patterns/COMMON_TM/INTC/OUTPUT/axrt_INTC_chk_cr52/bus.hangup
+https://172.29.152.227/VMS/cgi-bin/RCARX5H/VN_servers_info.html
+sim_st
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/sim_axperw_standby_chk_cr52/work/
+ecm and intc
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.13.0/sim
+
+
+0304
+mstp
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/02_Specification/BUS/Collect/X5H_Interface_Spec_hier_DF2.xlsx?web=1
+\\rvc-vnas-01.rvc.renesas.com\ipw1\BUS\users\thiennguyen\temp\R-CarX5H_Address_map.xlsx
+
+intc
+https://developer.arm.com/documentation/ddi0597/2023-12/Base-Instructions/CPS--CPSID--CPSIE--Change-PE-State-
+
+https://172.29.152.227/VMS/cgi-bin/RCARX5H/VN_servers_info.html
+
+0307
+v4m master sim
+/design03/rcarv4m_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.15.0/MASTER_RTL/
+in source me
+setenv MASTER_SNAPSHOT     /design03/rcarv4m_mst_rvc/VNET1.0/RELEASE/SIM/snapshot 
+
+list of all bus in mstp test item of v4m
+/shsv/ipw1/BUS/users/thiennguyen/temp/bus
+list of all rtl bus in v4m sim 3.15.0
+/shsv/ipw1/BUS/users/thiennguyen/temp/v4m315.list
+list of files appear with the bus specify in testitems
+/shsv/ipw1/BUS/users/thiennguyen/temp/v4mrtl.list
+
+current -> 
+intc v4m is stuck, over max step
+ecm v4m is stuck, wait for the error from intc is solved.
+
+gointo -> debug stage
+031324
+the power structure
+https://renesasgroup.sharepoint.com/:x:/r/sites/Ext-ABU-R-CarX5H-with-RVC/_layouts/15/Doc.aspx?sourcedoc=%7B4E24E7E2-EC1F-4292-9483-0F183B6A6148%7D&file=X5H_power_structure.xlsx&wdLOR=c5CC6C2B0-EE0C-470A-84E3-88355758F2A5&action=default&mobileredirect=true
+
+https://172.29.152.227/VMS/cgi-bin/RCARX5H/rcarx5h_dashboard.html
+for sim3
+siminfo -> bus
+https://172.29.152.227/VMS/cgi-bin/RCARX5H/rcarx5h_dashboard.html
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.1.0/bus_schedule.csv
+bus_ip list that is the total
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/script/bus_ip_latest.list
+
+the original source to gen for all template
+
+

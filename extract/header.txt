@@ -1,0 +1,76 @@
+^phương pháp học$
+^general$
+^võ thuật$
+^social life$
+^my note$
+^kiến thức cuộc sống$
+^thơ văn$
+^cultural$
+^âm nhạc$
+^electronic$
+^mechanical$
+^electronic mechanical$
+^fpga$
+^renesas$
+^vendor device$
+^programming$
+^programing$
+^web dev$
+^web_dev$
+^web development$
+^nghệ thuật$
+^technology in life$
+^linux$
+^window$
+^du lịch và cuộc sống$
+^electronic - mechanical$
+^music$
+^giải trí$
+^kung fu$
+^martial art$
+^linux$
+^vim$
+^Technology in life$
+^english$
+^mynote$
+^practical$
+^tip$
+^pycharm$
+^visual studio code$
+^web_app$
+^python$
+^username and pass$
+^project$
+^projectt$
+^important$
+^todo$
+^schedule$
+^memory$
+^mem$
+^server$
+^poem$
+^entertainment$
+^kienthucvanhoa$
+^cultural$
+^foreign language$
+^course$
+^market$
+^stackoverflow$
+^stack overflow$
+^math$
+^adven$
+^fun$
+^history$
+^machine learning$
+^c_digi$
+^c_data$
+^limit$
+^medicine$
+^drawing$
+^agriculture$
+^C#$
+
+^course_*$
+^budget_*$
+^project_*$
+^tool_*$

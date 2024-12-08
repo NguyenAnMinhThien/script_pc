@@ -1,0 +1,40 @@
+#!/bin/csh -f
+set condition = 0
+set myfile = "$1"
+set finding = "$2"
+set excute = "$3"
+#usage: loop file finding
+#   ~/script/loop 'COMP_DATA/vcs_comp_data/vlogan.log' "'seconds to compile'"
+#   ~/script/loop 'COMP_DATA/vcs_comp_data/comp.log' "'PASS'"  -> cannot put this, will not be recognized when compiling pass
+#   ~/script/loop 'COMP_DATA/vcs_comp_data/comp.log' "PASS"
+#~/script/loop sim_intc_apperw0_intc_chk_cr52_apperw0/work/simv.log "Total result: pass" excute
+
+# this will loop untill it find out the info of a pattern in the file given
+while ($condition == 0)
+
+sleep 3  #this is second need to wait
+if (-f $myfile) then
+#~/script/findd.py -f "$1" -e "$2"
+#echo "grep -c $2 $1"
+echo "grep -c $finding $myfile"
+set condition = `grep -c "$finding" $myfile`
+echo $condition
+#CPU time: 706.621 seconds to compile
+echo "$1 hehe $2"
+echo "hehe"
+
+endif
+
+
+end
+echo "Have find the result"
+sleep 3
+#put your script here
+if ($excute == "excute") then 
+echo "excute .."
+#Total result: pass
+run_para_X5H_PSO.csh
+#run_para_X5H.csh /shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/phase5_TM/
+~/script/loop_pend.py -pend pend -server "regression server" -find frun
+#~/script/send_mail.perl
+endif

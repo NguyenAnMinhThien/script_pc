@@ -1,0 +1,48 @@
+04/05
+Write code to get the info about QOS from Interface Spec hier.xlsx
+Have debug for these cases
+- axim, axpv, axvi: patterns hang up (force and release DDR-PHY), apperw0: Data abort
+- axglb, axrt, axsn: patterns hangup 
+About env and submit jobs
+- Create the pattern from the success ones at the previous week
+- intergrate from sim3.1 -> sim3.2 -> sim3.3, modified run_paralel script.
+
+Encounter these issuses
+- axcmnbs: response Slave Error when access to dummy_reg_region_0 of axcmnbs
+- axatb: pattern fail when access to register of this bus, is contacting Yamanaka-san about this issuse
+- axmm1: pattern hangup
+
+VMS fail cases 5:
+axcmnbs: 3 cases,   axperw: 1 case,   axcmnbf: 1 case
+
+
+
+axatb, axmm1 pattern fail.
+investigating:
+- axperw : verify on sim_lpddr*
+- axcidbf: DDR, SystemRam to test the function reset if the core CR52 access to these region not hangup
+- axcmnbf, axcidbf: access RT_VRAM, RT_SRAM, test the function reset if the core CR52 access to these region not hangup
+- axmm1: pattern hangup
+
+To be incharge for ECM follow daily group meeting:
+https://teams.microsoft.com/l/message/19:meeting_MzY1ZjRiYzAtZDNmNi00ZmY5LTliNjgtNmJmNzgyZmE2YWYw@thread.v2/1712281573561?context=%7B%22contextType%22%3A%22chat%22%7D
+
+
+
+Review the meeting of Chip power mode.
+
+83 + 21 = 104
+
+weekly report for 0412
+- axcmnbs: undef interrupt and 
+- the remain bus
+
+axcidbs, axcmnbf, axcidbf, axscp, apscp, axmm1, 2 core mm_dbsc, axperw, axcmnbs, axdsp
+
+
+the ARS module I will check for that ?
+the axperw and axad, axvip .. 
+
+the common checklist is not updated for CF phase, there are some new change about the register need to wait for, axvi, axdsp
+
+:%s/x5h_busreg_\(.*\)_addr.equ:

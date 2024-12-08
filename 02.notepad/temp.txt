@@ -1,0 +1,307 @@
+get the waveform of axatb
+have created axatb sfrst pattern: just read/write the register
+create another pattern for axatb standby : with full flow of pattern
+open the wave: what is the full routing from core to axatb ? 
+
+in the waveform of div bus, we see the axsn is divided into the smaller for sub hier, and the hier name are attach on that signal naming.
+
+{shxsim.shxbrd.chip_top.rt.rt_main.rt_core.rt_mem.axglb.axi_cr52ss0_core0m_RRESP[1:0]}
+
+the routing:
+axglb
+axrt
+shxsim.shxbrd.chip_top.rt.bridge_wrap.bridge.axsn0k
+shxsim.shxbrd.chip_top.rt.rt_main.rt_dmac_grp.axrt0a
+shxsim.shxbrd.chip_top.rt.rt_main.rt_sec.axrt0b
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.axrt0c
+shxsim.shxbrd.chip_top.cmn.cmn_core.cmn_busn.axcmnbs
+shxsim.shxbrd.chip_top.rt.rt_main.rt_core.rt_mem.axglb
+
+C:\Users\a5144834\Downloads\rcarx5h_ecm_common_checklist.xlsx
+proc dump_enable {} {
+
+  if { [CMP_STR_SIG_H 'h1 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axcidbs0.x_mstp_axcidbs0_n] == 1} {
+    puts "Pass enable mstp "
+  } else {
+    puts "\n>>> Error! FAIL enable mstp."
+  }
+
+}
+
+
+
+test_axhcs/axhcs_standby_chk_cr52
+test_imn/axim_standby_chk_cr52
+test_axpv/axpv_standby_chk_cr52
+test_axdsp/axdsp_standby_chk_cr52
+test_axmm1/axmm1_mstp_chk_cr52
+test_axcidbs/axcidbs_mstp_chk_cr52
+test_axcidbf/axcidbf_mstp_chk_cr52
+test_axscp/axscp_standby_chk_cr52
+test_apscp/apscp_standby_chk_cr52
+test_mm_dbsc2/axmm2_standby_chk_cr52
+test_mm_dbsc3/axmm2_standby_chk_cr52
+test_mm_dbsc4/axmm2_standby_chk_cr52
+test_mm_dbsc5/axmm2_standby_chk_cr52
+test_mm_dbsc6/axmm2_standby_chk_cr52
+test_mm_dbsc7/axmm2_standby_chk_cr52
+
+test_axperw/axperw_mstp_chk_cr52
+test_npu0/axnpu_standby_chk_cr52
+test_axcmnn/axcmnn_standby_chk_cr52
+test_axcmnbs/axcmnbs_standby_chk_cr52
+test_axcmnbf/axcmnbf_standby_chk_cr52
+test_axcmns/axcmns_standby_chk_cr52
+
+mask1,mask0_standby_chk_cr52,no,rvc-srv0308,24000,2,vms
+mask1,mask0_sfrst_chk_cr52,no,rvc-srv0308,24000,2,vms
+mask1,mask0_mstp_chk_cr52,no,rvc-srv0308,24000,2,vms
+
+test_axsn/axsn_standby_chk_cr52
+test_axhcs/axhcs_standby_chk_cr52
+test_aximn/aximn_standby_chk_cr52
+test_axpv/axpv_standby_chk_cr52
+test_axdsp/axdsp_standby_chk_cr52
+test_axmm/axmm_standby_chk_cr52
+test_axcidbs/axcidbs_standby_chk_cr52
+test_axcidbf/axcidbf_standby_chk_cr52
+
+test_apscp/apscp_standby_chk_cr52
+test_apperw0/apperw0_standby_chk_cr52
+test_apperw1/apperw1_standby_chk_cr52
+test_apperw2/apperw2_standby_chk_cr52
+test_apddr0/apddr0_standby_chk_cr52
+test_aprt0/aprt0_standby_chk_cr52
+test_aps0/aps0_standby_chk_cr52
+
+xterm -sb -rightbar -geometry 100x20 -hold -fs 10 -fg black -bg white -title "hehe" -e frun test_mm_dbsc7/axmm2_standby_chk_cr52/vcs_cmd.list  >& /dev/null &
+
+
+axcmnbs,axcmnbs_standby_chk_cr52,no,rvc-srv0308,24000,2,novms
+
+/shsv/ipw1/BUS/users/thiennguyen/temp/session.waves_0422_mstp.vpd.tcl
+
+
+ecmpperw2_reg_injection_err_enable
+reg_injection_err_enable_sel
+reg_injection_err_enable_we
+
+reg_injection_err_enable_pre
+bus_err_injection_post
+ecmperw0_enable_inject_pre
+
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.axperw
+
+edit again the run_para_intc.csh
+edit vms pat_intc.list
+edit the vcs_cmd_intc.lst
+point the file Saveandrestore_setting to the correct position
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/testcase/test_axatb/axatb_mstp_chk_cr52/main.s
+
+ecmperw_reg_icistp_err_inten_0    ,0xC0590680
+shxsim.shxbrd.chip_top.apu0
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apperw1_intc_chk_cr52_apperw1/work_apperw1_intc_chk_cr52_20240419_181050/
+
+axperw,axperw_sfrst_chk_cr52,no,rvc-srv0308,32000,2,novms
+tarmac.shxsim_shxbrd_chip_top_apu0_apu_main_apu_core00_apcoressa100_u_core0_vcpu_u_vcpu.log
+--fsimopts -copy2work $ENV_TCASE/sample/APU_boot_by_PPU_access_DDR_core0
+#axdsp1,axdsp1_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axdsp2,axdsp2_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axdsp0,axdsp0_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axmm0a,axmm0a_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axmm0b,axmm0b_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axmm0c,axmm0c_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axmm0d,axmm0d_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axmm0e,axmm0e_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axvi0,axvi0_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+#axvi1,axvi1_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+##axrt0a,#axrt0a_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+##axrt0b,#axrt0b_standby_chk_cr52,wave,rvc-srv0308,32000,2,novms
+#
+#
+
+
+axdsp1
+axdsp2
+axdsp0
+axmm0a
+axmm0b
+axmm0c
+axmm0d
+axmm0e
+axvi0
+axvi1
+#axrt0a
+#axrt0b
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_axatb_mstp_chk_cr52_axatb/work_axatb_mstp_chk_cr52_20240422_114254/
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_axatb_sfrst_chk_cr52_axatb/work_axatb_sfrst_chk_cr52_20240422_113232/
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_axatb_standby_chk_cr52_axatb/work_axatb_standby_chk_cr52_20240422_113135/
+
+secacerr_err_intreq
+ecmpperw2_reg_secacerr_err_status_0
+
+grep secsel_apb_arpperw0 $rcar1/01_Design/X5H/iRTLgen_X5H/OUTPUT/busreg/x5h_full_busreg_addr.equ
+ grep -e "secsel.*arpperw0" $rcar1/01_Design/X5H/iRTLgen_X5H/OUTPUT/busreg/x5h_full_busreg_addr.equ
+
+V3:shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.apperw0.err_secacerr_apperw0
+$temp/tmp1
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/testcase/test_intc_apperw0/apperw0_intc_chk_cr52/APU/src_enyo/boot.s
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/testcase/source
+ser -d "test_intc_ddr2 test_intc_ddr3" -f MAKE_rvc_ENYO
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/INTC/test_intc_apperw0/apperw0_intc_chk_apu/APU/src_enyo/boot.s
+
+$temp/hj
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apperw0_intc_chk_cr52_apperw0/work/
+not do about other, only focus into int pattern sameple, 4 case
+prepare to continue gen pattern
+
+$temp/lalala -pend pend
+
+shxsim.shxbrd.chip_top.rt.rt_main.rt_core.cr52ss0
+apperw0    SECERR0		0xC0625010                 dummy_reg_region_0		0xC0620FFC                                   ecmperw0_reg_secacerr_err_inten_0        0xC063F600                              secsel_apb_arpperw0		0xC0623800   
+test_mask0/mask0_standby_chk_cr52
+
+focus: axperw and mm_dbss
+correct the code of par -> we can use par to get the file name and temp to get both the file name and the content
+find the code that dump the wave and success apu in intterupt
+see the apu code, and find out what inside compare to the apu in axperw_sfrst we receive
+search the key word used in the patttern with the log file in apu 
+-> the purpose is to understand the log file of apu.
+
+currently two kind of patterns are success, the mstp and the apu core non-secure mode. The remain is for debug the axperw pattern and the case with low power chip mode. with the case axperw, can be leave behind.
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_wavefull_axperw_mstp/work_axperw_mstp_chk_cr52_20240520_082633/
+
+/shsv/ipw1/BUS/users/thiennguyen/temp/
+3a10_0000_0800_0441_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_4000_0742_0000_0100_0088_2000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_00e8_4000_0020_0011_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0030_1743_3d00_0000_0000_0141_041c_0800_0074_0002_2000_0000_0005_2d2d_2808_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0004_2043_8100_000f_0000_4410_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_c05d_0cf4_0000_0000_0005_0410_7020_0001_d000_0882_0000_0000_14b4_b4a0_2000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_1081_0e04_0000_3c00_0110_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_1018_01d0_8000_0800_0022_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0003_003a_1000_0100_0004_4100_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0040_6007_4200_0020_0000_8820_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0002_0000_0000_0000_0000_0000_0000_000a_0820_e040_0003_8000_1100_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0001_0000_1d08_0000_0400_0220
+420_0080_0500_0088_2002_0a00_2007_4000_2200_0000_800b_0810_b008_8200_0000_0200_0400_0220_0000_0000_b080_0b00_8800_0024_043c_2042_c022_0000_0300_0b28_40b0_0880_0000_0003_8200_2c02_2080_0830_0080_1b00_0088_2002_0800_2007_0000_2200_0042_0008_0050_0008_8200_2000_0380_7800_0220
+
+what is this ? opcode, the address of ram it is accessing, the data containing in that address.
+
+cmnd2dni0
+
+cmnd2dsi0
+cmnd2dsi1
+
+
+cmn2ddr0
+
+
+hxsim.shxbrd.chip_top.cmn.cmn_core.cmn_main0.cmn_core0 
+/shsv/ipw1/BUS/users/thiennguyen/temp//probe_0520.tcl
+
+the signal of wave need to exit , then we will see the full.
+
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.ecm.u7800hecm000_errreq_pulse_width_checker.ECM_PW_reg31_bit9_lvl_p
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.ecm.u7800hecm000_errreq_pulse_width_checker.ECM_PW_reg38_bit20_lvl_p
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.ecm.u7800hecm000_errreq_pulse_width_checker.ECM_PW_reg23_bit24_lvl_n
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.ecm.u7800hecm000_errreq_pulse_width_checker.ECM_PW_reg24_bit2_lvl_p
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.ecm.u7800hecm000_errreq_pulse_width_checker.ECM_PW_reg24_bit3_lvl_p
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_sentry/work/
+
+
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/top_x5h_sim3.3.0/sim_mmupere_sysss_sentry_crun/work_mmupere_sysss_sentry_crun_20240424_123234
+/shsv/mcsd/project/X5H_SYSSS/07_users/nguyenphuocnguyen/01_testcase/CT/testcase/release/sample_CT3.3/standby/sysss_sentry_crun_dstp/scp/src/boot.s
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/TM_X5H/mmuscp0/mmuscp0_sysss_sentry_crun_dstp/scp/src/boot.s
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_sentry/work_mmupere_sysss_sentry_crun_20240516_153843/
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/testcase/TM_X5H/mmupere/mmupere_sysss_sentry_crun/scp/src/
+
+/design03/rcarx5hfed_work12/BUS/users/hungcao/04_Verification/top_x5h_sim2.11.0/top_x5h_sim2.11.0/testcase/sample/apu_interrupt_request_mfi_atruong_2_mod/cr52_access_33bit.tcl
+
+/shsv/mcsd_work/MCSD_Work/X5H_SYSSS/simulation/nguyenphuocnguyen/088_top_x5h_sim3.3.0_reg_03/testcase/release/sample_CT3.3
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/TM_X5H/mmupere/mmupere_sysss_sentry_crun/scp/src/boot.s
+lowpower chip mode scp
+/shsv/mcsd_work/MCSD_Work/X5H_SYSSS/simulation/nguyenphuocnguyen/088_top_x5h_sim3.3.0_01/hdl/u7800hrcarx5h_rt_scp_main.v
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_axdsp1_mstp_chk_cr52_axdsp1/work_axdsp1_mstp_chk_cr52_20240510_181819/
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_axdsp1_mstp_chk_cr52_axdsp1/work_axdsp1_mstp_chk_cr52_20240515_133724/
+
+tarmac.shxsim_shxbrd_chip_top_apu0_apu_main_apu_core00_apcoressa100_u_core0_vcpu_u_vcpu.log
+
+
+
+Hai Vu FE/HSDC3[STA] 
+
+/design03/rcarv4m_mst_rvc/VNET1.0/MASTER_TM/ECM_V4M_RTL/cr52_ecm_intreq_lvl_p_13/tcl_vcs/usr_sim.tcl
+
+the sample TM for refer in V4M pattern.
+/design03/rcarx5h_mst_rvc/VNET1.0/MASTER_TM/MSIOF_X5H_RTL/MSIOF4/msiof4_sentry_mode_check_bk/
+
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/top_x5h_sim3.6.0/sim_mmuscp0_sysss_sentry_crun_dstp/work_mmuscp0_sysss_sentry_crun_dstp_20240524_114308/scp/src/boot.s
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_pwr_shutoff_all_BUS_sentry_mode_22_PSO/work_pwr_shutoff_all_BUS_sentry_mode_22_20240526_175055/boot.s
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/top_x5h_sim3.6.0/sim_mmuscp0_sysss_sentry_crun_dstp/work_mmuscp0_sysss_sentry_crun_dstp_20240524_114308/boot.s
+
+ram connection
+axscp\|apscp\|axvi\|axpere\|axperw\|apperw0\|apperw1\|apperw2\|axam\|axad\|apddr\|axhcn\|axrt\|aprt0\|axglb\|axrt1\|axsn\|aps0\|axhcs\|axim\|axpv\|axdsp\|axmm\|stat\|axcidbs\|axcidbf\|axatb\|axnpu\|axcmn
+usr_sim.0527
+
+I am checking the isreq, isack handskake signal before a mstp is toggle, but I see there are two buses axatb and stat there are no these signals. May these buses are special cases ?
+
+401604
+
+x5h_frun -os RHEL7
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_pwr_shutoff_axscp_cyclic_mode_21_vcs_PSO/work_pwr_shutoff_axscp_cyclic_mode_21_vcs_20240529_181441/
+
+jump1: Collect info of all the fail case into a file in MSTP_SFRST folder list
+
+1: judgement pass_fail of the toggle point in each pattern
+
+
+axpere,axhcs,axhcn,axnpu: sdm signal is no changed and have ? value (dont know because there is no wave)
+axscp: only this has sdm signal changing
+axam: sdm signal and rs_chain_out there is no change (that means this signal is hi-z or x value ?)
+axad, axcidbs, axrt1, axcidbf: they are full flow but there is no isreq, isack durring the process
+jump2: ask Yonemori-san about axcidbs: why it exist isreq, isack but it not toggle before mstp change ? Your info is valueable.
+
+
+par -d axvi1/ -f usr_sim.tcl -e "sed -i 's/mask1/mask2/g' 's/mask3/mask4/g' "
+
+/design03/rcarv4m_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.15.0/MASTER_RTL
+
+\\rvc-vnas-01.rvc.renesas.com\ipw1\BUS\users\thiennguyen\temp\Manual 2.0 - Generate whole chip EDC routing path.docx
+/design03/rcarx5hfed_work12/BUS/users/duongnguyen2/04_Verification/01_UT_env/create_UT_env_x5h/Gen_BUS_Routing_path
+ /shsv/ipw1/BUS/users/tanminhdam/05_UT/Connection_check_rtl_generated_by_iBUSgen/01_Formal_Verify
+*
+/shsv/ipw1/BUS/users/tanminhdam/05_UT/v4m_debug_not_svn/s597a/BusUT/How_to_run_Access_Matrix.txt
+
+
+
+report3
+remove
+usr_sim.list
+cpg.list
+runme2
+
+331 = 171 (mstp) + 124 (intc) + 36

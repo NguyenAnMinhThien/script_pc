@@ -1,0 +1,13 @@
+decrease the number of patterns need to check on the bus are in repeated for reduce the timing and the number of pattern.
+haved save the states for env with error and no error of normal bus.
+apperw0 and axad are not appear in common/<bus>_address.eqy
+is create manually for axad with test.s , main.s , and address.equ , with the apperw0 we create the mannually for address.equ
+create a new script to get the hier_repeated, avoid the current input with complicated input
+write a script to change all content from another input (with the simple input , just the bus value)
+for e.x : with xxx run_compile -> the input list is axam , axad will replace the xxx many time depend on the number of bus module.
+
+
+the most difficult that leads to mistake in csh is the input arg via many script, and the more mis understanding is due to these args may be miss durring invoke.
+when writing script, there are some character we dont see but it attend to the grep, find, this may make the mistake later .
+
+common checklist mstp : $temp/common_checklist_mstp

@@ -1,0 +1,1355 @@
+#renesas
+
+how I can trace a wrong signal ?
+trace from the root of error and then later to other signal to it. The file contain the moduel call these signals..
+what is the step to setup a reg in ct env ?
+first we force a mstp reg by simulate command, later will try by setting via command in reg, arm code.
+open wave form to check if the clk has stopped or not .
+what are the correct signals in the perw ? spec
+c06c0000
+c0741000
+c057FFE0
+c05e8000
+c05ea000
+c0480000
+
+setlocal autoread
+set autoread
+
+
+master faprc no need
+build many master outside access to mm
+
+\\rvc-vnas-01.rvc.renesas.com\rcarx5hfed_work12\BUS\users\thiennguyen6\04_Verification\02.UT\Access_matrix\X5H_BusUT_Env\scripts\coverage_scripts\matrix_table_apb.csv
+
+axmm: run for 5 patterns, 1 pat is unable continue, the other is running. all is 1 master access to 1 slave.
+axperw: pass some patterns, but fail 1 pattern, the 
+axhscs: is running for apb test,
+all have update the latest the edition of the sim and also the 2_div file for apb
+with apb test, 
+
+[8:22 AM] Nguyen Dao
+/shsv/ipw1/BUS/users/duongnguyen2/04_Verification/02_UT/X5H/X5H_BusUT_Env_29Dec/dut/lib.f.X5H.rvc_UT
+
+copy rtl
+compile ut
+
+
+
+
+23 9 11 is axmm should be run
+
+run again perw, mm with new lib, new rtl, no need to comp again env
+compare with old run.csh to see the cov work- in bs submit - get coverage for hscs
+
+/shsv/ipw1/BUS/users/duongnguyen2/04_Verification/02_UT/X5H/X5H_BusUT_Env_02Jan/rch3_sim/run.csh
+has context menunapshot_pa
+
+get new env
+learn cov
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env/
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env/
+x5hfed_work12
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/02.UT/Access_matrix/X5H_BusUT_Env/
+
+if I need to run again the perw with new rtl and lib update ?
+the lib if it is added rundandancy if there is problem ?
+with axmm, if I should add new lib and run again ?
+if I need to add edc gen and check , where I can add ?
+
+reload
+open_db
+lít_select
+
+./extract_mpg_mr_reg.py -file RCarX5H_TS_RegisterDescription_Module_Controller_20231208.xlsm  -hier TOP -mod aps0
+
+.scd_grp_mstp.txt
+
+
+
+\\RVC Technical Training\01_Basic Course
+
+\\rvc-vnas-01.rvc.renesas.com\Training\Materials_HW\DDR\2010S_HW_Stage4_Group2
+\\rvc-vnas-01.rvc.renesas.com\Training\Materials_HW\MBIST_Dev\15G\reference
+\\rvc-vnas-01.rvc.renesas.com\Training\Materials_HW\Backend\15G_TRAINING\Stage3_BackEnd4\LBIST
+
+
+ 
+
+Onedrive of me 
+
+Tệp của tôi - OneDrive (live.com) 
+
+The note book to note small content 
+
+NOTE - Microsoft OneNote Online (live.com) 
+
+Where to locate all file word root 
+
+NOTE_link - OneDrive (live.com) 
+
+Where to locate the old files have completed 
+
+Old - OneDrive (live.com) 
+
+Linking to other shortlink when I completed read 
+
+Linking.docx - Microsoft Word Online (live.com) 
+
+axi_lstqmm0_rs
+
+.\{-}
+
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/iBUSgen/script/ /shsv/ipw1/BUS/users/hungcao/X5H/ref/RTL/u7800haxmm00top0_NoC_Modulea.v modulea.io u7800haxmm00top0_NoC_Modulea
+{if (grep $3 /shsv/ipw1/BUS/users/thiennguyen/05_Task/BUS_IOGEN_X5H/OUTPUT/u7800haxmm00top0.io != "") { 
+echo "//1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21" >! $io_file
+echo "\!ATTR PORT WLEN WLOAD PCAP CLOCK PHASE SPECT SYNT LOCAT CONNECT NET UPTO UPMOD TIM ASYNR CKSYN ACTIV ISO LEAVE COMM" >> $io_file
+echo "//1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21" >! $io_file
+echo "\!ATTR PORT WLEN WLOAD PCAP CLOCK PHASE SPECT SYNT LOCAT CONNECT NET UPTO UPMOD TIM ASYNR CKSYN ACTIV ISO LEAVE COMM" >> $io_file
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/iBUSgen/script/genIOfromRTL.csh /shsv/ipw1/BUS/users/hungcao/X5H/ref/RTL/u7800haxmm00top0_NoC_Modulea.v Modulea.io u7800haxmm00top0_NoC_Modulea
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/BUS_IOGEN_X5H/OUTPUT/u7800haxmm00top0.io
+
+1)
+cho em hỏi, e có thấy những tín hiệu trong sub module :
+hoặc xuất hiện ở IO file cũ 
+hoặc xuất hiện ở submodule khác
+hoặc chỉ xuất hiện một mình nóhoặc chỉ xuất hiện một mình nó
+
+2)
+subA connect to subB and subC
+subB connect to subC
+-> 3 cases
+
+if devide many subs, there are many cases need to solve.
+
+markkk
+
+# list all signals appear in other submodules 
+open(OUT_T,">list_all_pin_appeare_in_sub_b");
+my ($attribute, $pin, $arrdwidth) = ("","","");
+    open(tmp, "Modulea.io"); #importantt
+        while (<tmp>) {
+            chomp($_);
+                ($attribute, $pin, $arrdwidth) = split(' ',$_);
+                
+                open (sub_b, "Moduleb.io");#importantt
+                while (<sub_b>) {
+
+                chomp($_);
+        #        if ($pin =~ $_) { 
+
+        if ($attribute eq "IN") {
+                if ($_ =~ /OUT $pin/) { 
+                
+                printf OUT_T "$pin\n";
+                printf "$pin\n";
+
+
+                }
+                }
+        elsif ($attribute eq "OUT") {
+
+                if ($_ =~ /IN $pin/) { 
+                
+                printf OUT_T "$pin\n";
+                printf "$pin\n";
+
+
+                }
+
+
+
+        }
+                }
+                close(sub_b);
+
+
+
+                #printf "$pin\n";
+    }
+
+    close(tmp);
+close(OUT_T);
+system ("sort -u -o list_all_pin_appeare_in_sub_b list_all_pin_appeare_in_sub_b") ;
+
+
+how to force perl make the value of variable stored on different location ?
+https://perldoc.perl.org/variables#:~:text=%24_%20%2D%20The%20default%20input%20and,parameters%20passed%20to%20that%20subroutine
+Preserve a variable's value across multiple subroutine calls in perl
+https://stackoverflow.com/questions/28390908/preserve-a-variables-value-across-multiple-subroutine-calls-in-perl
+https://metacpan.org/release/MNEYLON/File-Grep-0.02/view/Grep.pm
+
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.x_apreset_aprt0_pd_apl_p
+
+ls -R
+find . -type f
+
+HCMO- canteen & lobby renovation & Tet Holiday
+
+
+How to use verdi to trace gate ? (in note.docx)
+
+HOw to force ms team alsway available ?
+https://answers.microsoft.com/en-us/msteams/forum/all/microsoft-teams-away-status-time/f3248aec-dec0-415d-a3c8-4eca84742123
+
+find . -name "make_split_io.pl"
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/03.Synthesis/RCAR-X5H-N3E
+:%s/V2\:/\rV2/g
+
+
+{V2:shxsim.shxbrd.chip_top.rt.rt_main.rt_other.aprt0.regionen_r_apb_armgc_0[31:0]}
+V2:shxsim.shxbrd.chip_top.rt.rt_main.rt_other.aprt0.busmain.apb_wwdt5_checkmodule_apb
+{V2:shxsim.shxbrd.chip_top.rt.rt_main.rt_other.aprt0.busreg.aprt0_SAFERR1[31:0]}
+{V2:shxsim.shxbrd.chip_top.rt.rt_main.rt_other.aprt0.busecm.lschk_err_mpi[127:0]}
+
+how to get the name of a file on internet ?
+-> use ms powerpoint app in destop, then in info 
+
+http://masl002.eda.renesas.com/issues/197864
+
+
+a Hung Cao, 
+flow :
+- flow của enable mstp/disable mstp
+- flow chung của cả pattern
+
+
+add DUMP_VALUE in basic_macro.equ
+/design02/rcarg5_lib/TSMC_N3E/macro/SRAM/X5H_TSMC/20240201/VMC/softmacro/b_tsmc_uhd2prfr_ts6n03aelvtb128x64m1wbzhocp_rs1.v
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/testcase/test_aprt0/aprt0_mstp_chk_cr52/
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/sim/work_aprt0_sfrst_chk_cr52_20240219_141622/
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/testcase/test_aprt0/aprt0_standby_chk_cr52/
+
+Reference:  https://renesasgroup.sharepoint.com/:p:/r/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/02_Specification/024_SoC_Level_Specification/024-15_Power_Specification/sram_powercontrol_gen5.pptx?d=w32ef1e28b7bc470ca8fc829b23ba5994&csf=1&web=1&e=SAGswf
+
+compass
+near-sighted glass
+pivot
+needle
+exert
+
+What is the difference between store RTL in master and snapshot ?
+/design03/rcarv4m_mst_rvc/VNET1.0/        RELEASE/SIM/snapshot/sim3.7.0/MASTER_RTL/u779hhaximp0top0.v
+
+vc spyglass is for sta
+spyglass normal is for rtl rules
+
+	;.MACRO CPG_SET_BIT ADDR, BIT_POS ; This is a Macro
+	MACRO
+	CPG_SET_BIT $ADDR, $BIT_POS
+	LDR R0, = $BIT_POS
+	LDR R1, = 0X00000001
+	LSL R1, R1, R0
+      
+	LDR R3, = $ADDR
+	LDR R4, [R3]
+	NOP
+	ORR R1, R1, R4
+	MVN R1, R1
+	LDR R2, = 0XE6150000
+	STR R1, [R2]
+	NOP
+	MVN R1, R1
+	STR R1, [R3]
+	NOP
+;This is end of a MACRO
+	;.ENDM
+	MEND
+
+
+lsr
+	;.MACRO WAIT_CPG_SET_BIT END_TM, ADDR, BIT_POS ; This is a Macro
+	MACRO
+	WAIT_CPG_SET_BIT $END_TM, $ADDR, $BIT_POS
+	LDR R0, = $BIT_POS
+;	LDR R2, = $END_TM
+	LDR R3, = $ADDR
+	LDR R1, = 0X00000001
+	LSL R1, R1, R0
+       
+	LDR R9, = 0X00000000
+
+1
+	ADD R9, R9, #1
+	CMP R9,     #10
+	BNE %f2
+;	MOV PC, R2
+  B   $END_TM
+  LTORG
+	NOP
+
+2
+	LDR R4, [R3]
+	NOP
+	AND R4, R4, R1
+	NOP
+
+	CMP R4, R1
+	BNE %b1
+	BNE %b1
+	NOP
+;This is end of a MACRO
+	;.ENDM
+	MEND
+
+
+STAcheck_ASYNR_userguide
+
+rm -f .kite_tarmac...swp .kite_tarmac.02.log.swp .kite_tarmac.01.log.swp .kite_tarmac.00.log.swp 
+
+0x19440CF4 
+currently the bus module still not run reg_check all , still there have bug cases and many bus not running.
+
+  RM_PROT MDLC14PKCPROT1
+  CHECK_STATE MDLC14MSRESS0, 0x0000000C
+  SET_STATE MDLC14MSRES0, 0XFFFFFFF3
+  WAIT_STATE MDLC14MSRES0, MDLC14MSRESS0, 0x0000000C
+
+C:\Users\a5144834\Renesas Electronics Corporation\R-Car X5H with RVC - Documents
+C:\Users\a5144834\Renesas Electronics Corporation\R-Car X5H with RVC - Documents
+https://renesasgroup.sharepoint.com/:f:/r/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/01_Development%20Management?csf=1&web=1&e=7M99d9
+"C:\Users\a5144834\Renesas Electronics Corporation\R-Car X5H with RVC - Documents\01_Development Management\070_VCF\10_RVC_export_control_management\"
+
+hiện tại pattern của e có bug đó , khi set MDLC14MSRES0 xong thì state sẽ không change ngay lập tức, e phải dùng vòng lặp để đợi thanh ghi trạng thái MDLC14MSRESS0 update giá trị mới như pattern dưới :
+
+./extract_mpg_mr_reg.py -file RCarX5H_TS_RegisterDescription_Module_Controller_20231208.xlsm  -hier MM -mod axmm0
+
+
+split a string "aprt0 RT 14 0 2" , remove the space and store into the array.
+concatenate the third element of array with this string "hehe" and assign to variable myvar.
+I have another string, have this form "haha <changeme> ", replace <changeme> into new string 
+
+
+access mode, create file
+https://www.geeksforgeeks.org/writing-to-file-in-python/
+https://www.w3schools.com/python/python_file_write.asp
+
+while loop and for loop
+https://www.datacamp.com/tutorial/loops-python-tutorial?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720824&utm_adgroupid=157156376311&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=684592140434&utm_targetid=dsa-2218886984100&utm_loc_interest_ms=&utm_loc_physical_ms=1028581&utm_content=&utm_campaign=230119_1-sea~dsa~tofu_2-b2c_3-row-p2_4-prc_5-na_6-na_7-le_8-pdsh-go_9-na_10-na_11-na&gad_source=1&gclid=CjwKCAiA_tuuBhAUEiwAvxkgTnr-8eMlVJZ1oCzLgFKYVdDDBpsIkCpj9nGdIMUumtC18faYFu_7dxoCc8sQAvD_BwE
+
+replace a string with or without limited occurences
+https://www.w3schools.com/python/ref_string_replace.asp
+
+acess a character in a string
+https://www.geeksforgeeks.org/python-string/
+
+declare binary type and shift that number
+https://stackoverflow.com/questions/42765109/how-to-declare-a-list-of-32-bit-binary-numbers-and-shift-in-python
+
+split in python
+https://www.mygreatlearning.com/blog/python-string-split-method/#:~:text=Splitting%20Strings%20Using%20Default%20Delimiter,-When%20splitting%20strings&text=Default%20delimiter%3A%20By%20omitting%20the,the%20string%20at%20whitespace%20characters.
+
+python online
+https://www.online-python.com/
+
+shift with bits 1
+https://stackoverflow.com/questions/70477986/left-shift-but-replace-the-shifted-bits-with-ones
+
+all theory about python
+https://www.w3schools.com/python/python_datatypes.asp
+
+
+svn diff -r 8979:11390 http://svn.collab.net/repos/svn/trunk/fSupplierModel.php
+https://stackoverflow.com/questions/11634732/how-do-i-output-the-difference-between-two-specific-revisions-in-subversion
+https://svnbook.red-bean.com/en/1.8/svn.ref.svn.c.diff.html
+(the specific introduction)
+
+there are many clock
+
+
+
+set path_check shxsim.shxbrd.chip_top.top.top_nonfb.msystop.x_apreset_axsn_pd_apl_p
+
+set fp [open "./employee_name.txt" w ]
+set file_data [write $fp]
+close $fp
+
+        if { $path_check == 0x33333333 }  { 
+          puts "[lindex $line 3 ]"
+        } 
+
+
+\\rvc-vnas-01.rvc.renesas.com\pub\RVC Technical Training\06_New Engineer Training\03_EDA Tool Training\Basic Training
+import sys
+mydata = sys.argv[1]
+myarray[4] = str(myarray[4])[3]
+
+/shsv/ipw1/BUS/COMMON/Scripts/vcs_compile/
+/shsv/ipw1/BUS/COMMON/Scripts/CHECK_rtl_io/
+
+/shsv/ipw1/BUS/COMMON/Scripts/vcs_compile/
+vim practice dc
+$temp/practice_dc
+the root code for dump result
+/shsv/ipw1/BUS/users/thiennguyen/TCL_env/Practice_DC/demo.tcl
+/shsv/ipw1/BUS/users/thiennguyen/TCL_env/Practice_DC/
+
+/design03/rcarx5hfed_work11/BUS/users/duongnguyen2/01_Design/FlexNoC/module_design/06_Xcelium_compile/
+
+/design03/rcarx5hfed_work81/03_mkTOP/VNET1.0/IFCHK/IFCHK_Connection_DF1/
+
+/design03/rcarx5hfed_work81/03_mkTOP/
+
+/design03/rcarx5hfed_work81/03_mkTOP/VNET1.0/IFCHK/
+
+/shsv/ipw1/BUS/users/thiennguyen/02_Two_months_training/05_Tessolve_verification/TESSOLVE_DV_Training/uvm_ex_repo/6.INT_FP_MAC-master/tb/uvm/vip/mac_agent_config.svh
+/design03/rcarx5hfed_work11/BUS/users/duongnguyen2/01_Design/FlexNoC/module_design/repo_svn/FlexNoC/X5H/aprt0/RTL/u7800haprt00top0_NoC.v
+ /design03/rcarx5hfed_work11/BUS/users/COMMON/VNET/utility/IO_TOOLS/chk_UPTO_UPMOD.pl
+ /design03/rcarx5hfed_work11/BUS/users/khoanguyen9/01_Design/02_DF2/01_MST_IO_RTL/
+
+v/shsv/ipw1/BUS/users/thiennguyen/05_Task/vcs_compile_x5h/rtl.list
+/design03/rcarx5hfed_work11/BUS/users/COMMON/VNET/MASTER_RTL/ambagen_lib/lstatq/larbiter.v
+/design03/rcarx5hfed_work11/BUS/users/hungcao/repo/Design/Tools/DESIGN/BUS_RTLGEN/X5H/iRTLgen_X5H/OUTPUT/u7800haxvip0top0.v
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/iBUSgen_axvip/
+
+/design03/rcarx5hfed_work11/BUS/users/duongnguyen2/01_Design/FlexNoC/module_design/repo_svn/FlexNoC/X5H/aprt0/RTL/
+
+/design03/rcarx5hfed_work11/BUS/users/khoanguyen9/02_Synthesis/
+
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/Discovery
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/run
+/shsv/ipw1/BUS/users/tanminhdam/08_DESIGN/V4M_PRJ/BUS_RTLGEN/iRTLgen_for_V4M_CN/script/CSV/
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/04.Slit_IO/rtl/
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/01.UT_v4L/BusUT_V4L/BusUT_v4l_run_new/BusUT_v4l_run/Discovery
+/shsv/ipw1/BUS/users/thiennguyen/06_Code_example/multi_gen_pattern_suspend
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/EDC_check/main_check.csh
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/iBUSgen_axvip/axvip.pm
+
+task v4l
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/01.UT_v4L/BusUT_V4L/BusUT_v4l_run_new/BusUT_v4l_run/work/axi/foreach_tran_apb_AXSD0__PERI_SYDM2MX/rch3_sim/
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/01.UT_v4L/BusUT_V4L/BusUT_v4l_run_new/BusUT_v4l_run/Discovery
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/01.UT_v4L/BusUT_V4L/BusUT_v4l_run_new/BusUT_v4l_run/rch3_sim/run_ut.csh
+
+
+iRTLgen
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/
+
+/design03/rcarx5hfed_work11/BUS/users/thiennguyen6/01_Design/X5H/iRTLgen_X5H/iBUSgen_axvip/OUTPUT/u7800haxvip0top0.v
+/shsv/ipw1/BUS/users/hungcao/X5H/ref/RTL/constraints/externalConstraints.sdc
+
+make io
+$temp/make_io.vim
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/04.Slit_IO/rtl/BUS_IOGEN_X5H/addECM.pl
+
+
+
+https://linuxconfig.org/how-to-reset-terminal-in-linux
+
+fbs_apreset_axmm2_dbsc0_pd_apl_p
+fbs_apreset_axmm2_dbsc_pd_apl_p
+fbs_apreset_aprt0_pd_apl_p
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/OUTPUT/common/
+
+error when using mv commands
+https://unix.stackexchange.com/questions/193345/mv-directory-and-contents-to-new-directory
+
+
+
+path refer on sim
+paclet for tessolve
+coppy and build 
+
+APU mask interrupt
+latency in cpu core
+DF2' vs DF2
+ 
+/design03/rcar_work92/rcarv4m/04_Simulation/users/tungnguyen6/03_CT/01_CT_ENV/top_x5h_sim2.12.0/
+this is the dir for many tool script mini of simulation
+
+use middle button to paste by mouse, in xterm, also in openx
+in open xterm, when you close, that means you have terminated that 
+via time, the rtl is also updated in snapshot/master_rtl of each sim version
+see the difference via many sim version in $temp/ 240 280 300.list
+
+remember set target at the end of this month
+
+the code gen_patter_master.csh is correct, vimdiff
+file test.m32.l is exist in the folder template.
+
+remember, later when debug, open wave for each
+
+how can view all file vimx from many ter again, because ps x|egrep vimx is just for the current terminal
+when I put the wrong shortcut, it will turn off all the terminal window, how I can open again in OpenXterm ?
+
+https://stackoverflow.com/questions/1607904/vim-deleting-from-current-position-until-a-space
+https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line
+https://www.unix.com/unix-for-dummies-questions-and-answers/45569-how-move-word-word-command-line.html
+how to get two line in pattern matching ?
+-> search pattern at two lines
+
+current state: aps0 sfrst is ustop
+
+Change the probe.tcl :Open wave for msys and that hier
+
+The CR52 core access
+Core -> subsyss -> bus module
+Follow this path, if there is the uncorrect step, the signal go into bus module will be worong
+
+if I can dump wave at the middle state of a pattern running ?
+no, because there is no writen data during running, if we set at the first step, we will have the running process and dump value durring that simulation, also because this , it need more mem in the simulation.
+ 
+#cmn_probe shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.msysperw 0
+cmn_probe shxsim.shxbrd.chip_top.rt.rt_main.rt_other.msysrt 0
+{shxsim.shxbrd.chip_top.top.top_nonfb.msystop.regs.regi_MDLCnMSRESS00[31:0]}
+{shxsim.shxbrd.chip_top.top.top_nonfb.msystop.regs.rego_MDLCnMSRES00[31:0]}
+
+{shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.msysperw.regs.regi_MDLCnMSRESS00[31:0]}
+
+practical
+keep the wave of pattern pass for reference
+
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.msysrt.regs
+
+how to set the default font sizw in openxterm
+in OpenXterm, when we open many tab, this will load the server lowly, if we open via passive mode, it will decrease the amount of load.
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.13.0/sim/
+complete for compile DUT
+
+
+load the usr_sim.tcl at the middle, if it effect, try source usr_sim.tcl , then force a signal to see
+save the current state of simulation, try the load and what happen
+
+devide the env for repeated hier and normal pattern (with hier has only 1 bus)
+
+intc,ecm v4m, sample pattern x5h
+
+practical
+the server status of dedicated server is captured follow the time, what we see just is the value is capture via time, that is not true.
+
+show -value {shxsim.shxbrd.chip_top.rt.rt_main.rt_other.msysrt.regs.rego_MDLCnMSRES00[31:0]}
+show -value {shxsim.shxbrd.chip_top.rt.rt_main.rt_other.msysrt.regs.rego_MDLCnMSRESS00[31:0]}
+{shxsim.shxbrd.chip_top.top.top_nonfb.msystop.regs.rego_MDLCnMSRES00[31:0]} 'b11111111111111111111111111110011
+
+hwo to delete the line have nothing?
+/^\s*$
+:g//d
+
+>> grep_from_a_file_to_the_other.py $temp/kite_tarmac_cpu..log $temp/simv.log 
+[             1479031 ns]<CR52SS0_CORE0M  >(08):b Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479031 ns]<CR52SS0_CORE0M  >(08):b Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479033 ns]<CR52SS0_CORE0M  >(09):3 Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479033 ns]<CR52SS0_CORE0M  >(09):3 Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479034 ns]<CR52SS0_CORE0M  >(0a):0 Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479034 ns]<CR52SS0_CORE0M  >(0a):0 Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479036 ns]<CR52SS0_CORE0M  >(0b):0 Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+[             1479036 ns]<CR52SS0_CORE0M  >(0b):0 Rd @19440cf4 (  4Byte-  1Beat, INCR C:3 P:DSP)
+
+
+https://vim.fandom.com/wiki/Insert_current_date_or_time
+
+http://masl002.eda.renesas.com/issues/188420
+see this to know more about lpddr
+
+https://www.systemverilog.io/verification/sva-basics/
+
+FIQs and IRQs
+https://www.google.com/search?q=what+is+different+between+irq+and+fiq&oq=what+is+different+between+irq+and+fiq&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDk1MDNqMGoxqAIAsAIA&ie=UTF-8
+
+name of group instance in subsyss
+http://masl002.eda.renesas.com/issues/204191
+
+rs input be Hiz
+http://masl002.eda.renesas.com/projects/x5h_verification/search?issues=1&page=2&q=subsyss&utf8=%E2%9C%93
+
+readme to debug mstp
+http://masl002.eda.renesas.com/issues/202467
+
+vmc list library
+http://masl002.eda.renesas.com/issues/202928
+
+cmn core0 reset is not return core 0 ack
+http://masl002.eda.renesas.com/issues/203661
+
+
+how to open the window Xterm with default large font ?
+see again the core cr52 to know the final command it run
+vimdiff between aps0 and apperw
+
+
+
+e320f000
+e5831000
+e0011004
+e320f000
+
+e1530005
+e0063004
+e5934000
+e59f3020
+
+how to change the info of many file at once
+sed -i.bak 's/<STATUS_REG>$/<STATUS_REG>, <MASK_VALUE1>/g' template_*/main.s
+https://www.edaboard.com/threads/whats-the-main-difference-between-dc_shell-dc_shell-t-dc_shell-xg-t.67023/
+
+
+ show -value {shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.msysperw.regs.regi_MDLCnMSRESS00[31:0]}
+ /shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/sim_axperw_standby_chk_cr52/work
+ save aps0_st
+ 
+ /shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim2.8.0/testcase/test_axrt/axrt_sfrst_chk_cr52/
+
+the number of source, IPs may need to update ?
+CF common checklist
+ECM: release sample for duplicate FF & FID
+SMMU: update streamID for some IP
+register TM to master_TM (data TM latest must be lon master_Tm, it will synchronize with the VCF disk , mount ?
+
+module vva -> remove ? 
+low_power_checklist : deepstop, sentry
+
+customer acces to remove vva in x5h
+customer watn us to verify vva for pre-debuging in X5L
+
+axperw_standby
+axrt
+why after change the code, it is also be hangup at this point ? because all macro is dump at this address, so all have the same hangup at this point
+
+in simv, the command make it complete will be printed, not the command make it hangup, so the time chip begin to hangup is start from the later.
+
+because you jump into a command before macro end, so although you are not excute the macro, it still jump into the macro and hangup in there.
+when you include that macro, and excute in test.s, it has dumped that value into ram page mem, and then later although you dont call, it still jump into wrong address because it has dump that macro into the first page of assembly code.
+
+because the condition for wait statement is wrong, so it will jump when there is no correct time.
+the pattern you have pass is because 
+
+there will some case of compare
+cmp r3 r4, in rm_prot, there is no any command before branch and MEND
+cmp r4 r5, in check_state, there is 1 command before MEND
+cmp r3 r5, in wait_state, there is 1 command before MEND
+
+ldr r4, [r3]
+and r3, r6, r4
+
+if and success, and r4 r6 and store to r5 , 03ff 0003 => 0003, but the r5 is just 0
+
+{shxsim.shxbrd.chip_top.rt.rt_main.rt_other.msysrt.regs.regi_MDLCnMSRESS00[31:0]}
+
+
+apddr standby
+axmm0 mstp
+this is two patterns I have take at morning of 0311
+
+V2:shxsim.shxbrd.chip_top.rt.rt_main.rt_other.axrt.x_mstp_axrt_n
+
+
+get the info about bus UT in rcar red mine
+
+fbs_apreset_axmm_pd_apl_p
+x_mstp_axmm_n
+3000027c
+30000280
+highj
+
+review again the old current state.
+learn some new about the issuses have happen.
+learn some about UT
+
+what is include in ut
+a rtl
+
+use the following command to do for current task:
+- run 100 ns
+- stop -relative 100ns
+
+how to list all the bus what is relate or not in the routing path from cr52 to msys
+- use 2 value assign to a registr, can not, can not read the register although that is two time. because the second that regiseter si hangup agian
+- remove the assembly , just need the setting enable, no need dissable
+- 
+follow my undestand, these bus modules are 
+axglb
+axatb
+axcidbf
+axcmnbf
+
+check with yamanaka sho
+introduce my colleage the mstp pattern
+
+no have the way to set up for special way, have create the manually module, but see there are many issues related to these pattern
+
+create the patter to get progress for pattern hangup, with the case
+	- with the case mstp, only check the edge toggle
+	- with the case reset, check the initial value by after toggle, force again to continue the pattern, continue to dump out the register value
+	- with the case mstp/reset, force again 2 signals (for raise the clk and reset the module) 
+create  a pattern for access to register in ddr and system ram , (check axcidbf), access to register for rt-sram, rt-vram , each we will check the 
+learn more about the changing state of the deepstop, crun, cyclic
+
+what are the steps for 
+
+the xterm open from passive mode , it will not be turn off and terminated after suspend the open xterm
+
+sometime sr will not effect to mycshrc, so we turn off that termial window and open again to get the effecct.
+https://www.google.com/search?q=error+while+running+stop+point+%231+ucli+synosys&sca_esv=13b8ee85e24d7ba9&sca_upv=1&sxsrf=ACQVn09gSwPFizwJvmYoYVAAZwKZTv9atg%3A1710389281099&ei=IXjyZdXPBdb31e8P2OmT-Ag&udm=&ved=0ahUKEwiV5JvM8PKEAxXWe_UHHdj0BI8Q4dUDCBA&uact=5&oq=error+while+running+stop+point+%231+ucli+synosys&gs_lp=Egxnd3Mtd2l6LXNlcnAiLmVycm9yIHdoaWxlIHJ1bm5pbmcgc3RvcCBwb2ludCAjMSB1Y2xpIHN5bm9zeXMyBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigAUixNFC2AVjbMnACeAGQAQCYAa0CoAHNEKoBBTItOC4xuAEDyAEA-AEBmAIKoAKbD8ICChAAGEcY1gQYsAPCAgQQIRgVmAMAiAYBkAYIkgcHMi4wLjcuMaAH7SQ&sclient=gws-wiz-serp#ip=1
+
+try fn f6 f7 ..
+.csv only open in xdg-opne in active openXterm
+
+axpv
+axhcs ok
+axperw after NOP_32 it is hangup
+axpere
+/.aprt0\|apperw1\|apperw2\|apperw0\|axam\|axrt1\|axhcs\|axpere\|axperw\|aps0
+
+o,axnpu,,0xD2F00000,,,,2_4,2_3,,/design03/rcarx5h_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.1.0/MASTER_RTL/u7800haxnpu0top0.v,npu0
+o,axnpu,,0xD6F00000,,,,2_4,2_3,,/design03/rcarx5h_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.1.0/MASTER_RTL/u7800haxnpu0top0.v,npu1
+o,axad,axad_reg.html,0xEC608000,,,,2_4,2_3,,/design03/rcarx5hfed_work11/BUS/users/khoanguyen9/01_Design/02_DF2/iRTLgen_X5H/OUTPUT/u7800haxad00top0.v
+
+we cannot use foreach line in csh but can use grep, or awk, because these will get line by the line
+how use mkdir -p 
+https://stackoverflow.com/questions/36567083/cp-target-is-not-a-directory
+
+
+the reg form reg.html is not appear, why ?
+this is dueto what code ? must be gen_pattern_master.csh
+gen_bus_reg_attr.csh
+
+
+axmm3 dump wave
+axsn wave issue like axperw, have wave to see
+axmm2 have passed trigger, it signals mstp, sfrst are controlled by mysmm from axmm0, so need to get again the wave
+axdsp wave the problem is dueto use bbox in compile moudle.
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.1.0/sim_axdsp_standby_chk_cr52_axdsp/work
+
+rt_dmac
+rt_sec
+rt_other
+all them have axrt, now axrt are divided into 0a, 0b , 0c
+only two axrt1 and axglb are put into rt_core.rt_mem
+
+shxsim.shxbrd.chip_top.dsp.dsp_main.dsp_other.axdsp0
+
++ Hangup when access to msys register from core: axpv, axcmnn, axnpu (npu0), axnpu(npu1) , axvi, axcmns, axcmnbs, axim(imn), axim(ims), axvi 
+
+Bus wrapper script update for CF
+
+meeting
+rpd500 : mpd500: there hldrc , latch in this instance, detect this , replace virtual clock gated cell
+list all hiers not synthesise
+if we put the tool auto run, it will choose the equivalent, will raise error. 
+replace current cell by that cell.
+
+make again topology, 
+Read X5H_hier_structure.xlm
+
+practical
+when we create the new one, the old one there is no dissapear, we just branch to the other process.
+so in the programming, when create the new one, should create an if statement.
+When write a script, need to avoid put the output from a file without tell to other people explicitly.
+
+there are 2 files that are used 
+./script/gen_pattern_reg_arm.pl
+./script/gen_pattern_reg_shx.pl
+
+msys , normal is just for decision what would be used to gen pattern from template given
+
+meeting 0320 with minibus
+IP PIC is you
+IO file , up to master for TOP team, alert for them.
+find postDFT RTL , DFT release , dir of data package, 
+IP not check or , it will same with our IP on master.
+insert MBIS, in the package of ..
+RTL has VMC . not loss the DFT of that team.
+not update with the specified foler, ? update to a folder and tell with DFT team .
+
+the way to check is vimdiff with the old log file
+in the package release.
+get back and run, the result is not fail, tell DFT team this checker is not fail.
+
+after release, they will tell onto NEW
+a bug ticket relate to many IP, or relate to many hier, need to ground that cycle larger.
+
+there are some bugs may no need to fix
+
+this is the flow of product the RTL
+
+wraper has VMC is another RTL, RTL gen from FlexNoc is another, this is not lib, because if it is lib there will have many teams call and related. 
+we cannot read a file line by line in csh , if we cat and foreach , later we will read each word instead.
+https://www.google.com/search?q=how+to+pass+a+variable+file+name+into+the+command+open+of+python&oq=how+to+pass+a+variable+file+name+into+the+command+open+of+python&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTI3NTkxajBqNKgCALACAA&ie=UTF-8
+pass a variable file name into python open function
+https://www.google.com/search?q=check+how+many+argument+pass+to+python+&sca_esv=25b1c5396016b1bf&sca_upv=1&sxsrf=ACQVn0-uLTatHvC2CAtmcXooqtbMXzGqqA%3A1710648349261&ei=HWz2ZY29D_eU2roPmeKw8AY&udm=&ved=0ahUKEwjNv8XZtfqEAxV3ilYBHRkxDG4Q4dUDCBE&uact=5&oq=check+how+many+argument+pass+to+python+&gs_lp=Egxnd3Mtd2l6LXNlcnAiJ2NoZWNrIGhvdyBtYW55IGFyZ3VtZW50IHBhc3MgdG8gcHl0aG9uIDIIECEYoAEYwwQyCBAhGKABGMMEMggQIRigARjDBDIIECEYoAEYwwRIqGtQAFjyaHAAeAGQAQCYAf4BoAHQFqoBBDItMTO4AQPIAQD4AQGYAgWgAtcIwgIKECEYChigARjDBJgDAJIHAzItNaAHiD8&sclient=gws-wiz-serp
+check how many args pass in python
+arm use EOR to xor, python use or to logical two boolean expression, 
+when a signal is floating, what is the problem when we capture that signal ? >
+that signal if we capture it will be 1 or 0 , because the threshold voltage of cmod is a fixed value, but the noise make that signal is random at the time that CMOS capture, so we have the x value.
+https://electronics.stackexchange.com/questions/256566/why-would-you-need-a-floating-signal-on-a-board
+SPI bus, MISO, SCK clock edges, floating signal ussually not a good thing, but somecase it can be acceptable, in the time that value we not use.
+also, relate about the power of chip, using ultra-low-power will be more related and carefull.
+https://www.educative.io/answers/how-to-list-all-files-in-a-commit-in-git
+https://stackoverflow.com/questions/1095718/diff-two-tabs-in-vim
+https://realpython.com/python-strings/#:~:text=String%20indexing%20in%20Python%20is,of%20the%20string%20minus%20one.&text=For%20any%20non%2Dempty%20string,both%20return%20the%20last%20character.
+string and character data in python
+https://www.ibm.com/docs/en/aix/7.2?topic=commands-c-shell-expressions-operators
+cshell expression and operation
+
+practical
+when we use hibernate, the window app cannot be opened.
+
+where is the url I can checkout the file common checklist ?
+https://renesasgroup.sharepoint.com/sites/BM/R-CarGen3/SitePages/Home.aspx?RootFolder=%2Fsites%2FBM%2FR%2DCarGen3%2FR%2DCarGen3%20design%2F01%5FR%2DCarM3W&FolderCTID=0x0120008A0C5CF1DDB84B4C94940A3BC11C8DC6&View=%7B69C544B9%2DFAE9%2D43B8%2DB3F7%2D0D9946A0EF1A%7D
+https://renesasgroup.sharepoint.com/sites/R_CarDesignDocument/Shared%20Documents/Forms/AllItems.aspx?ovuser=53d82571%2Dda19%2D47e4%2D9cb4%2D625a166a4a2a%2Cthien%2Enguyen%2Ect%40renesas%2Ecom&OR=Teams%2DHL&CT=1710994320223&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDAyMTUyODYxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D
+
+when there is the window can not open and disappear after the other, we turn off all tab and open again. (excel)
+
+
+sed -i 's/dummy_reg_region_0/reg/g' template_standby/main.s
+
+
+
+
+par -f main.s -e "sed -i 's/mask0/0xE9A70000/g'"
+par -f main.s -e "sed -i 's/WRITE_L.*/WRITE_L reg, 0X0000AAAA/g'"
+par -f main.s -e "sed -i 's/DUMP_REG.*/DUMP_REG reg, 0X0000000F/g'"
+par -f main.s -e "sed -i 's/WRITE_L.*/WRITE_L reg, 0X0000AAAA/g'"
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns/3_bus_TM/axatb/OUTPUT/axatb_mstp_chk_cr52/main.s
+
+
+Use the EQU directive without the indent in assembly for , if use the coding assembly, use the indent instead.
+
+use the second source on another folder to source the code with many repeated
+
+need to source vimrc (open and source in that file, not outside terminal) to make effect in the terminal has been opened
+use find all in all document in notpad
+The doc open directly from the server is limited many feature, and you may not find out the result, saveas to pc for find out correctly.
+
+with 17GB -> submit 21 still enough
+with 19GB -> if I can submit with 24 enough ?
+
+
+dupplicate the first word : %s/^\(\w\+\)/\1 \1/g
+
+match only the first occurence : ^apddr\s\|^axnpu\s\|^axim\s\|^axmm2\s\{-}
+delete blank line   :g/^$/d
+
+folder sharepoint for module standby
+https://renesasgroup.sharepoint.com/sites/Ext-ABU-R-CarX5H-with-RVC/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x012000CF35202EC19A824084DD85FCC22477B3&id=%2Fsites%2FExt%2DABU%2DR%2DCarX5H%2Dwith%2DRVC%2FShared%20Documents%2F05%5FLogic%5FDesign%2F052%5FModule%5FDesign%2F02%5FSYSSS%2FTarget%5FSpecification%2FTS%2F018%5FModule%5FController&viewid=d086c3ed%2D229a%2D4370%2D9d1d%2D82912c40fac0
+
+/axvi\|axcmnn\|axcmns\|apddr\|axim\|axpv\|axnpu\|axdsp
+
+match the line with test and job
+job .*\n.*\n.*\n.*\n.*\n.*
+Concatenate job together
+:%s/\(job .*\)\(\n\)\(.*\)\(\n\)\(.*\)\(\n\)\(.*\)\(\n\)\(.*\)/\1\3\5\7/g
+:v//d
+%s/\(Job <\)\(\d\+\)\(.*\)/\2/g
+
+use the EQU directive without  the indent
+
+read the isuse, note, ut veri
+
+I have run again but vms not recorded the result to , so i have run again
+the isreq/isack in low power mode.
+V4m has no hier repeated
+
+exclusive access communication problem on BUS, the target module is axrtc0 (rt_other), axsn0 (top, mm bridge, rt bridge), axmm0 (mm). MM has RAM, 
+Wrong SCPRAM post request. SCPRAM need to retain data even after system reset, so it is not required for DFT. But as it is currently implemente, it needs to be fixed.
+there is an X propagation problem occuring in sim3 learfarbiter.
+
+Change strategy of sysss replacement (replace not RTL but the gate level also by adding the limitation in synthesis)
+Many bugs are reported every day, so it effects to apply to ECO .
+Delay of ECO command preparation.
+
+verdi
+consistency between simulation and deg
+unified front end
+UFE compile flow
+vcs -kdb : compile desifn and generate elaborated kdb
+simv -verdi
+
+
+
+initial
+begin
+$fsdbSuppress(system.i_pram);
+$fsdbDumpvars;
+$fsdbDumpvars(0, system.i_cpu.i_ALUB, "+fsdbfile+My.fsdb");
+#5000
+$fsdbDumpoff("+fsdbfile+My.fsdb");
+#2000
+$fsdbDumpon("+fsdbfile+My.fsdb");
+#5500 $finish;
+end
+
+bs -os RHEL7 vcs -full64 -f run.f -kdb -debug_access+all -lca
+bs -os RHEL7 simv
+bs -os RHEL7 -M 4000 verdi -ssf My.fsdb &
+
+bs -os RHEL7 vcs -sverilog +systemverilogext+.sv+.SV+ -l vcs.log -f run.f -kdb -debug_access+all -full64
+
+interactive mode : can not load waveform
+post-processing mode: can load
+
+bs -os RHEL7 vlogan -full64 run_verilog.f-kdb
+bs -os RHEL7 vhdlan-f run_vhdl.f-kdb
+vcs -full64 tb_CPU system-debug_access+all-kdb
+because this is mixed, so need to verilog and vhdl and compile them again.
+
+
+source sourceme
+/shsv/ipw1/BUS/users/thiennguyen/temp/verdi/sourceme
+
+what option we need to add into vcs executables vlogan/vhdlan/vcs when compiling design to use UFE : -kdb
+static trace: no need fsdb, still not have simulation result
+active trace: have the result of simulation
+
+when do TFV : trace non value , trace X, trace memory
+what is verdi fastgate mode: when the schematic is too large.
+
+change the databas wave dump: com_database: wave fsdb
+
+shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_iniu_grp.axmm0a.x_mstp_axmm0a_n
+
+
+verdi workshop
+/shsv/ipw1/BUS/users/thiennguyen/temp/verdi/sourceme
+/shsv/ipw1/BUS/users/thiennguyen/temp/verdi/demo/verilog/rtl/sourceme
+the dir for working
+/shsv/ipw1/BUS/users/thiennguyen/temp/verdi/demo/verilog/gate/
+
+/shsv/ipw1/BUS/users/thiennguyen/temp/new1
+
+how to change the content have expression in a file ?
+use sed -e -i ".."
+the command mks in vim will just link the session into, if we remove the files, the session will empty later
+
+How to ignore file or directory in subversion?
+
+common bug
+lack of pipe for timing
+wrong test signal
+lack of routing to 
+Unimplemented ..
+Latch in LPD..
+
+although we manually create the pattern but we also need to put the code into the script for easier management.
+
+https://stackoverflow.com/questions/15510119/how-to-add-an-existing-folder-with-files-to-svn
+svn ignore
+I have a dir with many file inside , this folder still not underversion control, this is the way to add them into svn and ignore some cases.
+
+order clk_stat, need to create a clear out to outside.
+dump clkstat clear , only 1 register but it include both for status and clear.
+use RTL to see the access
+
+WS1 : work single 1
+there is a file record all bug ticket
+
+par -d axsn -f main.s -e 'sed -i -e "s/NOP_32/NOP\n  NOP\n  NOP\n  NOP/g"'
+
+cp -rf axcidbs/lib/busreg/x5h_busreg_axcidbs0_addr.equ axcidbs/OUTPUT/common/axcidbs_address.equ
+
+meeting
+wid : from register slice, get the directly from axi3,
+207377 issues
+
+the correct is need to have the rs_slice
+axi_dsp_grp2
+rtl gen
+Busmain_wrap.pv
+
+207313
+
+preare the data in the ..
+sim3_regression
+register data to run the test pattern
+sanity_check.list : confirm 
+prepare list file and test pattern on ..
+fill the information of .. in utility/VMS.module_list / .
+the local data is in our , just link into ,
+
+recommend put our .. into 13:40 register 
+not run regression , just run sanity, degrade. There are some sim version, have many change, need to get all at regression mode, 
+support pattern for auto judge
+vmanager rerun , request to run again, dump again the waveform ? how ?
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.1.0/sim_axglb_standby_chk_cr52_axglb/../sim_axsn_standby_chk_cr52_axsn/work_axsn_standby_chk_cr52_20240328_093251/
+
+FYREAC_GLOBALS
+top level modules
+shxsim
+arm_cpu_info
+
+https://stackoverflow.com/questions/8606826/where-is-r0-and-r1-registers-in-the-memory-map
+
+
+axperw: lbsc : 30000000 is in perw
+
+DRAM is the acctual mem, virtual buffer will read data from this region, the rt-vram include rt-sram and a part of virtual buffer. 
+About the module connected to rt-vram: ecm - error interupt controller, cpg, axi bus, apb bus.
+&& cache data to DDR memory
+access protection of protect area, flush operation, 
+Exclusive access: with rt-sram, it is exokay responsse to Load - Exclusive, if store-exclusive is success, rt-sram returen exokay and update ram, but if fail by the other interfereance of other processor, rt-vram retyrn okay response and dont update ram.
+
+each hier is allocated an address space, why SMMU and LSTATQ are located an address region in address map ? so these hier have allocated this feature will have the address for them.
+address map sumary, address map for rt
+rt-sram, rt-vram in v4m
+code sram cdsram
+code sram mirror read/write
+rt-vram (memory)
+rt-vram (memory mirror 1 MB)
+rt-sram (memory)
+
+there are the relation ship between interface spec and address map
+what is the difference between code v sram, sysram, rtsram ?
+
+actually before run sim for an env, it will load full compile data into ram, so the memsize when we submit the jobs to lsf server must be > the compile data memsize.
+the current temperary :
+with full run, 32 GB
+with full run have wave, 48 GB
+because the open wave is depend on the number of module we open the wave, so the amount of data to open is not increase as the linear relation ship.
+
+COMPLETED!
+CheckModule_iapb #(.SYNC_RESET(0))apb_i3c1_checkm
+
+vimdiff u7800happerw2top0.v /design03/rcarx5h_mst_rvc/VNET1.0/RELEASE/SIM/snapshot/sim3.1.0/MASTER_IO_IFCHK/../MASTER_RTL/u7800happerw2top0.v
+
+notice about the command cp -rf :
+cp -rf top_x5h_sim3.1.0/sim/ top_x5h_sim3.2.0/
+this is true
+but this is false
+cp -rf top_x5h_sim3.1.0/sim/ top_x5h_sim3.2.0/sim
+
+consider another problem when we open a file already and edit that file on another terminal, save w! and at this file, we save w!, but the latest info is not updated.
+
+https://www.cyberciti.biz/faq/how-to-search-multiple-directories-with-find-command/#:~:text=The%20syntax%20to%20search%20multiple,directories%20but%20not%20all%20folders.
+how to find multiple dir
+
+/design03/rcarx5h_export/vn/
+this is the server for exchange data
+
+On microsoft team
+axmm0_divide_structure.xlsx
+
+when have decode error ? when access to an slave that is on the power off domain
+use git bash to get the faster searching
+there is not enough data to search gui_list_add .. in dve_ug_ in download folder
+
+when the cpu get the slverr, will raise from the core and axglb.
+
+use wq for save and quit at the same time
+use wq! to save and quit on readonly mode.
+
+to search next on the pdf file, in adobe, press into the next page and click search, if not, it wil not effect to the searching to the next page.
+
+the way to get the content at a specific line
+head -564 src/boot.s  | tail -1
+awk 'NR==564{ print; exit }' src/boot.s
+par -f "'*' -type f" -e "awk 'NR==563{ print; exit }' "
+
+use find the curretn appearance only with par commnad
+par -f ". -o -prune -type f" -e "echo "
+
+https://www.baeldung.com/linux/read-specific-line-from-file#:~:text=Using%20the%20head%20and%20tail%20Commands,-Using%20the%20head&text=The%20idea%20is%3A,n%20X%20input%20%7C%20tail%20%2D1
+read a specific line number in a file
+
+https://e2e.ti.com/support/processors-group/processors/f/processors-forum/92361/arm-core-to-ddr-read-access-latency
+read latency, D-TCM, 
+
+https://e2e.ti.com/support/processors-group/processors/f/processors-forum/92361/arm-core-to-ddr-read-access-latency
+amba ddr, lpddr, adn sdr dynamic memory controller
+
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.axrt0c.err_hier_int_axrt0c
+
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.apperw0
+
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.axperw
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/sim_intc_axpere_intc_chk_cr52_axpere/work_axpere_intc_chk_cr52_20240413_212521/
+
+/shxsim/shxbrd/chip_top/rt/rt_main/rt_core/cr52ss0
+shxsim.shxbrd.chip_top.rt.rt_main.rt_other.inttp 
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/sim_intc_apperw0_intc_chk_cr52_apperw0/work_apperw0_intc_chk_cr52_20240413_193856/
+
+bus axfbus ars tap
+
+axvip
+axim
+axdsp axfbus
+axpv gpc
+axnpu
+axvi
+$temp/srclist
+-> when open many more, there are many other still not open in this way
+
+ecmrt_reg_icistp_err_inten_0    ,0x1A810680 
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/sim_intc_apscp_intc_chk_cr52_apscp/work_apscp_intc_chk_cr52_20240416_135353/
+
+use : at in normal mode , will jump to the last word phrase before the space.
+diffoff, diffupdate and diffoff! try to use these command
+
+https://askubuntu.com/questions/1170231/how-to-use-multiple-criteria-for-the-find-command
+
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.apperw0
+
+What is the method to trace? 
+Use grep command, u can trace out the root cause of the problem race out.
+
+meeting 0417
+why we have pass_r but not pass_w in ut ?
+run the pattern in Xprop env .
+
+RTL force, delay, so the Xprop will filter these features to see if the effect of x signal will effect to the function of pattern or not.
+which pattern is interract with many other modules we will run it on Xprop env.
+
+3:48
+
+meeting on 0410
+
+it is not start from ca48, but it also routing to
+overlap the address
+
+STAcheck_VCSGcdc
+why we use the reset signal different, the reset sync is also different/
+metaFF is for replaced the FF in this sync circuit
+
+meeting on 0423
+about mm hier, the cdc, stat timing check
+bus team
+BUS Sync MTG
+also the mm hier bug
+mm0 , mm1, mm2, access matrix is just the internal of a bus, and the access matrix will change from this bus to oather bus.
+
+
+we use ; to excute 2 commands in csh next together.
+echo .. ; grep IRQ .. -> by using this way we will find out the file name and the equivalent IRQ with that file
+
+--fsimopts -copy2work "${ENV_TOP}/testcase/TM_X5H/mmurt00/mmurt00_interrupt_apu"
+
+
+use this way to submit the jobs after complete the compile patterns
+csh $temp/2222  ../testcase/test_axperw/axperw_mstp_chk_cr52/APU/compile_enyo.log "0 Errors" excute
+
+:s  -> apply the latest replace of previous into this line.
+
+~/script/loop sim_intc_apperw0_intc_chk_cr52_apperw0/work/simv.log "Total result: pass" excute
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apperw0_mask_chk_cr52_apperw0/work_apperw0_mask_chk_cr52_20240427_082500/simv.log
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apperw0_mask_chk_cr52_apperw0/work_apperw0_mask_chk_cr52_20240427_082500/kite_tarmac.00.log
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apddr1_mask_chk_cr52_apddr1/
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apddr1_intc_chk_cr52_apddr1/
+
+~/script/loop sim_intc_apperw0_mask_chk_cr52_apperw0/work/simv.log "Total result: pass" excute
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apddr1_intc_chk_cr52_apddr1/work_apddr1_intc_chk_cr52_20240427_024934/kite_tarmac.00.log
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.3.0/testcase/sample/APU_boot_by_PPU_access_DDR_core0_orginal/ram.m32_enyo
+
+a tip to use slash in vim to avoid many slash is to use the # for saparatin
+
+https://askubuntu.com/questions/1170231/how-to-use-multiple-criteria-for-the-find-command
+how to open multiple files or except something in find option
+
+use this link to open all file we have open recently, we also can open outlook from this link
+https://www.office.com/launch/excel?auth=2
+
+how to see the history of a command ?
+bhist -l
+
+we can sweep a line in this terminal but paste that line into another terminal
+
+After we bkill to kill a jobs related to dumpwave, it still success, if that wave is large we should use large mem of tool to open that wave. the wave 2.3 GB -> tool to open as 48 GB.
+
+
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/./sim_intc_apddr0_mask_chk_cr52_apddr0/work_apddr0_mask_chk_cr52_20240504_035803/waves.fsdb
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_apddr0_intc_chk_cr52_apddr0/work/
+
+shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axcidbs0.err_hier_int_axcidbs0
+shxsim.shxbrd.chip_top.cmn.cmn_core.cmn_busn.axcmnbs.err_hier_int_axcmnbs
+
+shxsim.shxbrd.chip_top.ddr0.ddr_main.apddr
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_axrt1_intc_chk_apu_axrt1/work_axrt1_intc_chk_apu_20240503_180148/
+
+
+---
+
+heree begin 0521
+we can vimdiff two folder to see the files are the same or not.
+
+%s/\(Error signal is unexpected value.*\)\(\n\)\(.*\)\(\n\)\(.*\)\(\n\)\(.*\)\(\n\)\(.*\)/\1\3\5\7/g
+
+at the time exit the pattern in terminal, not open the waveform of that pattern, if not, the file wave will not open correctly and lead to the wrong open later.
+
+the savesnapshot restore will use all the setting of the previous into it, it leads to : when we want to apply error signal list and tcl usr_sim.tcl file, it still get the old setting.
+
+becaue the snapshot only load the code as command like stop, .. , and the procedures it does not load so when we use snapshot it will get the naming of the command the stop calls. -> the procedure content can be difference, but the naming of proc and the root cause raising that proc can not be difference.
+
+Actually the commit to sim3.x.x like the operation of branch in git version control, with each sim, we put into a sim branch while the main code still run success in main trunk.
+
+There will have a control power for turning on the RAM and we load code into it., about ram and rom control, it just is a signal to control ?
+
+Nghĩa là em phải đổi chương trình chỏ 0x31012D0 -> 0xC13012D0 thành 0x31001920 -> 0xC13001920
+
+
+store the value in CRUN mode and when go to dspt, return to SENTRY at second time, the new value will be 0 , this is expected . ! No, SCP ram will not be included in the System reset factor in this case.
+
+heree end 0521
+
+$temp/signal0520.rc
+this is all the signal use apu to interface with opcode.
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_sentry/work_mmupere_sysss_sentry_crun_20240516_153843/waves.vpd
+
+corrected:
+uciapsysc200_csc.v 
+
+fail_0521 is the saved file in session.
+
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/top_x5h_sim3.3.0_xprop/sim_mmuscp0_standby_check_FIX_ISREQ/work_mmuscp0_standby_check_20240504_222054/
+
+
+/shsv/ipw1/BUS/users/nguyendao/X5H/02_Verification/00_CT/top_x5h_sim3.3.0_xprop/COMP_DATA/vcs_comp_data_user0/
+pwr_shutoff_all_BUS_sentry_mode_1
+
+/shsv/ipw1/BUS/users/thiennguyen/temp/mypattern/pwr_shutoff_all_BUS_sentry_mode_1/
+/shsv/ipw1/BUS/users/thiennguyen/temp/mypattern/mmuperw_sysss_sentry_crun/
+
+saveas! $temp/haha this will overitten the file into this folder.
+
+/shsv/ipw1/BUS/users/thiennguyen/temp/mypattern/TM_X5H/
+/shsv/ipw1/BUS/users/thiennguyen/temp/mypattern/TM_X5H/mmupere/mmupere_sysss_sentry_crun/
+
+/shsv/mcsd_work/MCSD_Work/X5H_SYSSS/simulation/nguyenphuocnguyen/088_top_x5h_sim3.3.0_01/hdl/u7800hrcarx5h_rt_scp_main.v
+/shsv/ipw1/BUS/users/thiennguyen/temp/mypattern/pwr_shutoff_all_BUS_sentry_mode_apperw0/scp/src/apperw0_address.equ
+
+readlink -f SRCLIST_V_T
+shxsim.shxbrd.chip_top.pere.pere_main.axpere
+
+What are the .w and .n suffixes added to arm assembly instructions?
+How to submit only a number of files ?
+https://stackoverflow.com/questions/1516188/svn-commit-specific-files
+$ svn ci -m "Now works" --targets fix4711.txt
+https://stackoverflow.com/questions/1186535/how-do-i-modify-a-specific-commit
+
+This is some script for fun:
+http://parallel.vub.ac.be/documentation/linux/unixdoc_download/Scripts.html
+
+a mistake in an alogrithm: it only remove the dupplicate of > 2 lines, but with 3 lines above, it can not.
+
+
+what is the config of laptop on company ?
+HP EliteBook 840 G8,Core i5-1145G7,16GB RAM,512GB SSD,Intel Graphics,14"FHD,Webcam,3 Cell,Wlanax+BT,SMCard,Win11 DG Win10 Pro 64,3Y WTY,4Y Onsite(U7860E)_3Y205UC-350/12
+
+
+collect the course file
+submit to svn script file
+
+important
+in the IO file of each bus, when it excute with an option, what is the different with the previous no have ?
+
+name, score, toggle
+instance's subtree
+Total covered percent
+
+why we need to define a mask in FlexNoc ?
+this is physical design, when we have a mask, it will use this value to AND with the current address for decission if it is allow to go through or not.
+
+axmm0, axcmnn, axperw, axsn, axrt
+
+aprt0, axcidbs0, apperw0
+the intc_cr52, mask_cr52 are correct, there is a small diff when the old not allow enable for axrt
+
+jump1:
+This signal is not toggled for rise or fall
+gen again the env for coverage all bus modules.
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.9.0_pso_intc//shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/AutoCT_X5H/gen_patterns//MSTP_SFRST
+
+how to see the maximum mem the CPU core using durring the process.
+
+Total result: pass
+
+we will devide each line into many parts, and write out into each cell the content of each column we have collected from the html manually.
+
+how to get the info from io file and display that info.
+
+output the file and boiler the gray color in the bus instance. With the skip on the next side.
+Total result: pass
+
+jump2:
+Collect all the necessary file for home_hehe.
+
+jump:
+edit again the code for gen corrected the file excel.
+RTL version, the moduel name, total ports, remain port, confirmed port, unconfirm ported.
+/shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/00_Patterns/repated_hier_TM/
+
+/shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/sim3.10_RW_reg/top_x5h_sim3.10.0/sim_axad_reg_chk_cr52
+
+/shsv/ipw1/BUS/users/khoanguyen9/02_CT_env/01_X5H_CT/sim3.10_RW_reg/top_x5h_sim3.10.0/sim_axad_reg_chk_cr52/cov/axad_reg_chk_cr52.vdb/
+
+run again axdsp1 for mstp/sfrst
+
+C:\Users\a5144834\Downloads\V4L_Preparation_v01_231003.xlsx
+
+what I should do in this cirumstance ? wait for the result, and review again old doc. filling the gap knowledge.
+
+finish normally
+
+rm -f sim_apddr_standby_chk_cr52_ddr0/work*/cm.log
+
+
+/shsv/ipw1/BUS/users/thiennguyen/06_Code_example/GetresutlfromlogfileafterrunUT.csh
+what is @ in csh ?
+@ percent = (( $i * 100 ) / $total )
+
+
+the technique : >>! append the file but create
+
+we can awk many times untill get the correct data !
+also, we can awk by this way : awk -F'Started on' ..something..
+
+if -f : file   //  -d : dir  -> check the exist
+
+we also can use awk -F ","    -> with a white space
+
+in BUS UT, Tcl is also effect on the file, so we can use it to access and change the content of file , -> but why there is a script all get the tcl language to chagne effect on file ? why they dont use script ? so, these code will be called during the simulation phase ?
+
+--
+
+
+
+no -> lacking of NG
+the y + 3 is effected to instance bus
+the bus reg instance naming
+--Function: 
+
+CLKSTAT : Relate to QOS control.
+CTRL :
+region_id: Region ID.
+dmsen_n: test mode signal.
+secsel: Select instance for secure function.
+
+--Reason:
+PADDR: The address channel can not toggle all of bit.
+Test mode pin
+
+--confirmed person:
+thien.nguyen
+
+
+--Function
+(CLKSTAT) Relate to sideband signal of ARS modules.
+
+--Reason
+(CLKSTAT) Cannot toggle this sideband signals.
+(CTRL) Cannot toggle this sideband signals.
+
+(PCLKREQ) This port is fixed in RTL gen.
+(mmu.*region_id)  Only use 5 last bits for region ID.
+
+
+../sim_connection_CTRL1_ARS/
+

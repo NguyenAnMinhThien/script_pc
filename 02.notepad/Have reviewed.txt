@@ -1,0 +1,49 @@
+
+can only bind to module or module instancce
+the macro is not defined
+test macro redefined, the last definition will overide previous ones.
+parsing design file './mstp_check_pro.sv'
+maximum error count reach, current number of errors has reached the default maximum error count (10). Please use error <count> to increase the limit.
+,
+
+https://www.baeldung.com/ops/git-modify-commit
+git commit --amend
+
+meeting hsdc1 global short F-up 0329
+bkuf , the reset signal, mask value the axi signal when there is the scan mode active.
+DFTmaske for feedback reset input from BKBUF.
+
+ASBD_ASOC1_GLOBAL NOTEBOOK
+
+camera serial interface CSI
+displat serial interface DSI
+
+https://unix.stackexchange.com/questions/213303/how-to-use-logical-or-in-find
+how to use logical or in find ?
+
+meeting team bus in 0329 
+how to replace RTL in postDFT when have bug ?
+
+https://mimage.opentext.com/evals/connv15/docs/Exceed.pdf
+because we are the sub user, so there are many feature in the OpenExeed turbo is limited and many options are dissable.
+
+AMBAgen_Customizing_Spec_V277
+write-side arbiter parameter mistake
+bug after CN
+Change ISO value of rs_chain_out_* signal
+207150: effect to the other products. 
+
+complete module level CDC/RDC
+dbsc, rt-vram, rt-sram, codesram, scp-ram , ecm, bkbuf, 
+
+
+The asbd_global notebook, have record many issue related to many team. Should download to see .
+https://renesasgroup.sharepoint.com/:o:/r/sites/ASBD_ASOC1_Global/SiteAssets/ASBD_ASOC1_Global%20Notebook?d=w2f7e9f5e52294087a850cc6a1a3574b7&csf=1&web=1&e=13Efpy
+
+RC_TOP Notebook
+DDR access on sim3.2.0
+
+my_array = ["huhu", "hihi"]
+my_array = my_array + "hehe" 
+
+print(my_array)

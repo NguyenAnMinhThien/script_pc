@@ -1,0 +1,31 @@
+make money for Duong Nguyen
+1030997146
+100000
+
+put the name into hdsc1 meeting
+see video about vcf
+
+attend HSDC1, SNPS_offline_verdi_workshop
+
+
+bus weekly meeting
+- force the signal mstp and sfrst again but it can not continue the simulation .
+- devide into 4 groups:
+the normal pattern, with dummy_reg
+the bus that is the target of the msys setting, just test edge
+(the bus is in the repeated )
+the bus special of Yamanaka Sho , when it connect to sram, rt-ram, ..
+- reset signal is also hangup
+
+have the simple pattern for mstp signal
+in deep about debug, stop, resume in bs, ucli to controll the flow, save , restore, load, a file (but not success dueto errro about wrong pointer ) , 
+refer to axrt_sfrst_ to see the error log of save and restore the wave.
+
+restart again the axrt_sfrst_chk_cr52 with the saved wave/
+encounter with network setting, 
+
+
+if we will store the R2 into R1
+we will use a loop in wait_sentry ?
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.7.0/sim_pwr_shutoff_all_BUS_sentry_mode_0_PSO/work/

@@ -1,0 +1,63 @@
+https://developer.arm.com/documentation/ka002692/latest/
+disassemble,  link register R14, illegal memory location, jtag debugger, 
+How is the mismatch between the IO file and RTL ? find out the way to get IO from rtl file and the relation ship between them ?
+We use a library list in vcs compile but in that cell difine we use again the verilog code, why we use a thing that is a result to be a thing that is a root ?
+C:\Users\a5144834\Downloads\T16FFC_R-Car-SmartRadar_STA_liberty_list .xlsm
+https://research.ece.cmu.edu/sandbox/cadfaq/tsmc/PUBLIC-TSMCLibrary-V2.4_Nov03.pdf
+
+https://renesasgroup.sharepoint.com/:f:/r/sites/ext_9439_265/Shared%20Documents/04_design_flow/02_MASTER_Registration/upio?csf=1&web=1
+
+ifchk loop
+/design03/rcarx5hfed_work81/03_mkTOP/VNET1.0/IFCHK/script/ifchk_bs_all.csh
+ifchk research
+$temp/ifchk.vim
+
+submit the jobs on multicore on multiprocessor 
+https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=jobs-processor-binding-lsf-job-processes
+https://indico.cern.ch/event/56353/contributions/2044282/attachments/985177/1400741/PraticalMultiCoreAtCERN.pdf
+
+practical:
+how I can build a whole module, change it in the CT env to test for my design , replace the old has exsist
+dftwrap rep
+
+force mstp of the main bus, this is not true because this signal is imported to both three sub module.
+
+
+xdg-open $file
+And it will open $file in an appropriate application for that file. The argument can also be a URL, so
+
+xdg-open http://askubuntu.com/
+
+how to learn flexnoc : from the folder irtlgen fd2 of my manager, get the data of pdd and try to gen from this.
+
+
+H'0_E9A0_0000 armm0
+the axmm1 and axmm2 dont have bus reg info in cf phase.
+in address map, there is no armm1, armm2 so with these bus, how we check the reset function ? , we just check the toggle, no check the 
+ axmm2 are also the repeated , but will not have register to check it.
+
+the vimdiff of the two files are the same, probe.tcl
+the env sim3 can be run with the paralel
+
+this is the base address of apddr in multiple hier
+H'0_E802_0000 apddr_ddr0
+H'0_E80A_0000 apddr_ddr1
+H'0_E812_0000 apddr_ddr3
+H'0_E81A_0000 apddr_ddr4
+H'0_E822_0000 apddr_ddr0
+H'0_E82A_0000 apddr_ddr1
+H'0_E832_0000 apddr_ddr0
+H'0_E83A_0000 apddr_ddr1
+
+the bus assigment of all incharge person 
+$temp/bus_assignment
+a waveform have run in sim3.0.0
+/design03/rcarx5hfed_work22/FBIST/users/baogiaphan/03_sim/top_x5h_sim3.0.0_CF/DUMP_cr52_apb_fbamer6/work_cr52_apb_fbamer6_20240313_181914/
+
+about the method
+a general list for all enough
+a pat list list out the bus u want
+because the number of bus are many, so u can grep out and run for it auto matically.
+
+after run the first pattern for hangup cases, 
+standby : 

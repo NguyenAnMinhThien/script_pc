@@ -1,0 +1,93 @@
+
+http://masl002.eda.renesas.com/issues/207518
+Hi a Nguyen, sao tickect này anh Done rồi mà nó không close vậy nhỉ /
+
+http://masl002.eda.renesas.com/issues/207514
+Hi Dương, e change cái này thành Done giúp anh nhe
+
+--
+
+dump 1 level from 
+apu core to msys,
+hier bus -> DDR 
+--
+
+gen the pattern for intterupt for axcidbs0, axmm0 to check the bejavior
+
+msys, axperw, axsn, axmm1, axmm0, axmm2, dbsc
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.msysperw
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_main.axperw
+shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc01.mm_dbsc0
+shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc01.mm_dbsc1
+shxsim.shxbrd.chip_top.mm.mm_main.mm_bus.axmm1
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_intc_aprt0_intc_chk_apu_aprt0/work_aprt0_intc_chk_apu_20240506_143905/
+u7800hrcarx5h_apu0
+u7800hrcarx5h_apu_core_grp0	apu_core00,apu_core10
+u7800hrcarx5h_apu_core_grp1	apu_core01,apu_core11
+
+axrt0c
+axscp
+axsn0a
+axperw
+axcmn
+axmm0
+
+
+first sample tm
+debug mstp
+
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.4.0/sim_axdsp1_mstp_chk_cr52_axdsp1_full/work_axdsp1_mstp_chk_cr52_20240502_152908/
+
+	
+use Ctrl 4 to get the signal of that.
+/shsv/ipw1/BUS/users/thiennguyen/05_Task/02.CT_X5H/top_x5h_sim3.6.0/sim_wavefull_axperw_mstp/work/
+shxsim.shxbrd.chip_top.perw.perw_mp_wrap.perw_bus_grp.axperw 
+
+we can use bkill intead of exit directly on the terminla.
+
+
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_iniu_grp.axmm0a 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_axcidb_grp.axmm0b 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_tniu0_grp.axmm0c 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_tniu1_grp.axmm0d 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_other_grp.axmm0e 0
+
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc67.mm_dbsc7.axmm2 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc67.mm_dbsc6.axmm2 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc45.mm_dbsc5.axmm2 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc45.mm_dbsc4.axmm2 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc23.mm_dbsc3.axmm2 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc23.mm_dbsc2.axmm2 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.mm_main.mm_dbsc01.mm_dbsc1.axmm2 0
+
+#cmn_probe shxsim.shxbrd.chip_top.top.top_main.axsn0a 0
+#cmn_probe shxsim.shxbrd.chip_top.cmn.bridgen_wrap.bridgen.axsn0b 0
+#cmn_probe shxsim.shxbrd.chip_top.cmn.bridges_wrap.bridges.axsn0c 0
+#cmn_probe shxsim.shxbrd.chip_top.dsp.bridge_wrap.bridge.axsn0d 0
+#cmn_probe shxsim.shxbrd.chip_top.gpc.bridge_wrap.bridge.axsn0e 0
+#cmn_probe shxsim.shxbrd.chip_top.hscn.bridge_wrap.bridge.axsn0f 0
+#cmn_probe shxsim.shxbrd.chip_top.hscs.bridge_wrap.bridge.axsn0g 0
+#cmn_probe shxsim.shxbrd.chip_top.mm.bridge_wrap.bridge.axsn0h 0
+#cmn_probe shxsim.shxbrd.chip_top.pere.bridge_wrap.bridge.axsn0i 0
+#cmn_probe shxsim.shxbrd.chip_top.perw.bridge_wrap.bridge.axsn0j 0
+#cmn_probe shxsim.shxbrd.chip_top.rt.bridge_wrap.bridge.axsn0k 0
+#cmn_probe shxsim.shxbrd.chip_top.vio.bridge_wrap.bridge.axsn0l 0
+
+
+currently, 288 pass, 1 fail follow VMS record, not cal axcmnbs_mask_chk_apu 4:12 20/05
+
+view again the params_common at cf, to see the different  if y use the wron
+
+*
+common
+REL ツール情報 (renesas.com)
+This is a site cover all webpage we need .
+http://edasite.eda.renesas.com/cgi-bin/lv1ww/tools/cgi/to_sel_menuframe.cgi
+
+Re: [HDSD Quality Newsletter] November 29 2023
+This email the info about :
+Release checklist 
+Check environtment
+Make CI environtment
+*

@@ -1,0 +1,43 @@
+todo : synthesis with only a rtl file
+build a UVM basic env
+observe the memsize via an example: gui app dve : if we open many database exceed the ram mem difined, then we will be shutdown tool unexpected.
+trace error base on rtl code, schematic, waveform
+
+practical
+write a script that will auto open the file (in linux) via an app on window when we put a shortcut
+-> when we use shortcut, there will be change in a file, in window, it always see the content in that file, if there is changing, it will capture the new line and open with the default app.
+By this way, we can open file on RVC-sharepoint on Linux !
+
+sw_win dir has commplete, now we can convert quickly a path and copy the path into clipboard immediately.
+
+how to grep recursive into many files
+
+master_timing
+sta timing
+bus run by ambagen will there is no bus reg and bus ecm
+
+dbsc0 : 
+s5h sim3.0.0 analysis
+bus ut: firewall, region id, edc, access matrix, access to register of SVC
+
+fix the value when hier is power off, if this region will fixed when off .
+need to be the same high or same low. req and ack must be the same, if there is mismatch then that will be fail.
+
+
+xprop 
+relate to fusa , will make later in sign-off
+pso - need to have UPF
+
+test_pattern_name , manual judge , need to keep at common checklist
+manual_judge need to keep from pic at CF phase.
+sim 3.0 can not power off, sim3.1 will release
+cf will change design , rs out, sim3.1 will force, can not power down
+each file need to input the password, superversion config, can not save, 
+bkbuf is old, so the risk may be not have, may it is outside.
+199276 sram mode, relate to DungPhan
+RT-ram, new issuse/
+200713 200058
+
+
+may i can use the local address of html for access in linux ?
+use the search alroritthm from goolge but we point into the specific site of synosys or cadence !

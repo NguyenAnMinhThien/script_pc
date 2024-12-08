@@ -1,0 +1,241 @@
+- create env update for lack flow, gen success
+- $temp/killme_0316   : a list of all files open via window
+- fix for msys pattern gen
+
+try this for multiple server
+echo -e "This is \x22\x27\x22\x27\x22text\x22\x27\x22\x27\x22"
+This is "'"'"text"'"'"
+\x22 is the ASCII code (in hex) for double quotes and \x27 for single quotes. Similarly you can echo any character.
+https://stackoverflow.com/questions/3834839/how-can-i-escape-a-double-quote-inside-double-quotes
+
+find the code for calling the Frun
+
+in many bus, there are some setting config for is changed
+http://masl002.eda.renesas.com/issues/205714
+
+use -e or use -f to check the exist of a file in csh
+
+because read line by line in csh can not be, so we excute by python
+https://www.unix.com/shell-programming-and-scripting/255397-reading-file-line-line-cshell.html
+
+have found the env_frun_bs variable in many file, but there is no found what script call it to fix.
+THe only script call related it is used for palladium option.
+so how this option is invoke to when calling ? may it is call from another script ? so the final thing tell is that it is called from another script that come from source .. , e.x sourceme
+
+how to find all saving info about the past
+use git log to get all commit hash, use v//d and git show --name-only to show the specific info the number of files are find out
+https://www.educative.io/answers/how-to-list-all-files-in-a-commit-in-git
+git show --name-only <commithash>
+
+how to diff between two tab in vim ?
+https://stackoverflow.com/questions/1095718/diff-two-tabs-in-vim
+
+practical
+with the large problem, need to have a method to show it, from the beginning, because we will encounter all of the problem may be occure.
+
+
+how to find all the bus have hangup dueto lack of a5a5
+how to know what module are ars and the hier need to open
+what module we still not simulate any time ?
+
+
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_axcidb_grp.axmm0b.x_mstp_axmm0b_n
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_tniu0_grp.axmm0c.x_mstp_axmm0c_n
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_tniu1_grp.axmm0d.x_mstp_axmm0d_n
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_other_grp.axmm0e.x_mstp_axmm0e_n
+
+u7800hmsysmmtop0.io:OUT	x_mstp_axmm_n for axmm1
+
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.msysmm.x_mstp_axmm0a_n
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.msysmm.x_mstp_axmm_n
+shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axmm11.x_mstp_axmm1_n
+
+62	8:21	mv vcs_comp_data vcs_comp_data_not_enough
+    63	8:21	mv vcs_comp_data_full/ vcs_comp_data
+
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_iniu_grp.axmm0a.x_apreset_axmm0a
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_axcidb_grp.axmm0b.x_apreset_axmm0b
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_tniu0_grp.axmm0c.x_apreset_axmm0c
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_tniu1_grp.axmm0d.x_apreset_axmm0d
+show -value shxsim.shxbrd.chip_top.mm.mm_main.mm_axmm_grp.mm_other_grp.axmm0e.x_apreset_axmm0e
+
+https://stackoverflow.com/questions/8901542/how-to-delete-a-git-commit-from-log-like-it-had-never-existed
+
+
+when read , pread data out , get from input, clk status
+write into, there is a register to store, then store into.
+if you want to check, must to get the value of clear port.
+
+when read, read the status,
+when write, clear that status.
+
+/design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/top_v4m_sim3.15.0/script/envrc /design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/top_v4m_sim3.15.0/hdl/Srclist_v_t_vcs.f /design03/rcarx5hfed_work12/BUS/users/thiennguyen6/04_Verification/01.CT/top_v4m_sim3.15.0/testcase/test_intc/axrt_INTC_chk_cr52/tcl_vcs/probe.tcl
+
+
+
+stat
+proc dump_enable {} {
+
+  if { [CMP_STR_SIG_H 'h0 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.stat.x_mstp_n] == 1} {
+    puts "Pass enable mstp "
+  } else {
+    puts "\n>>> Error! FAIL enable mstp."
+  }
+
+}
+
+
+proc dump_dissable {} {
+  if { [CMP_STR_SIG_H 'h1 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.stat.x_mstp_n] == 1} {
+    puts "Pass dissable mstp "
+  } else {
+    puts "\n>>> Error! FAIL dissable mstp."
+  }
+
+}
+
+
+proc dump_enable {} {
+
+  if { [CMP_STR_SIG_H 'h0 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axatb.x_mstp_n] == 1} {
+    puts "Pass enable mstp "
+  } else {
+    puts "\n>>> Error! FAIL enable mstp."
+  }
+
+}
+
+
+proc dump_dissable {} {
+  if { [CMP_STR_SIG_H 'h1 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axatb.x_mstp_n] == 1} {
+    puts "Pass dissable mstp "
+  } else {
+    puts "\n>>> Error! FAIL dissable mstp."
+  }
+
+}
+
+axcidbf
+ 
+proc dump_enable {} {
+
+  if { [CMP_STR_SIG_H 'h0 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axcidbf.x_mstp_n] == 1} {
+    puts "Pass enable mstp "
+  } else {
+    puts "\n>>> Error! FAIL enable mstp."
+  }
+
+}
+
+
+proc dump_dissable {} {
+  if { [CMP_STR_SIG_H 'h1 shxsim.shxbrd.chip_top.mm.mm_main.mm_bus_grp.axcidbf.x_mstp_n] == 1} {
+    puts "Pass dissable mstp "
+  } else {
+    puts "\n>>> Error! FAIL dissable mstp."
+  }
+
+}
+
+
+axcmnbf
+ 
+proc dump_enable {} {
+
+  if { [CMP_STR_SIG_H 'h0 shxsim.shxbrd.chip_top.cmn.cmn_core.cmn_busn.axcmnbf.x_mstp_n] == 1} {
+    puts "Pass enable mstp "
+  } else {
+    puts "\n>>> Error! FAIL enable mstp."
+  }
+
+}
+
+
+proc dump_dissable {} {
+  if { [CMP_STR_SIG_H 'h1 shxsim.shxbrd.chip_top.cmn.cmn_core.cmn_busn.axcmnbf.x_mstp_n] == 1} {
+    puts "Pass dissable mstp "
+  } else {
+    puts "\n>>> Error! FAIL dissable mstp."
+  }
+
+}
+
+ 
+proc dissable_standby {} {
+
+if { [CMP_STR_SIG_H 'h0 shxsim.shxbrd.chip_top.dsp.dsp_main.dsp_other.axdsp0.x_mstp_axdsp_n] == 1 && [CMP_STR_SIG_H 'h1 shxsim.shxbrd.chip_top.dsp.dsp_main.dsp_other.axdsp0.x_aprest_axdsp] == 1} {
+    puts "Pass enable standby"
+
+#    run 200000ns
+#    force shxsim.shxbrd.chip_top.rt.rt_main.rt_other.axrt.x_apreset_axrt 1'b0
+#    
+#    force shxsim.shxbrd.chip_top.rt.rt_main.rt_other.axrt.x_mstp_axrt_n 1'b1
+  } else {
+    puts "\n>>> Error! FAIL enable standby."
+  }
+
+}
+
+
+test_CPG/aprt0_2_3_chk_cr52;
+test_CPG/aprt0_2_4_chk_cr52;
+test_CPG/aps0_9_8_chk_cr52;
+test_CPG/aps0_9_9_chk_cr52;
+test_CPG/apsp3_2_7_chk_cr52;
+test_CPG/apsp3_2_8_chk_cr52;
+test_CPG/apsp4_2_5_chk_cr52;
+test_CPG/apsp4_2_6_chk_cr52;
+test_CPG/axrc_2_20_chk_cr52;
+test_CPG/axrc_2_21_chk_cr52;
+test_CPG/axrd_2_22_chk_cr52;
+test_CPG/axrd_2_23_chk_cr52;
+test_CPG/axsc_2_28_chk_cr52;
+test_CPG/axsd0_2_29_chk_cr52;
+test_CPG/axsd0_2_30_chk_cr52;
+test_CPG/axsm_2_31_chk_cr52;
+test_CPG/axsm_3_0_chk_cr52;
+test_CPG/axsn_3_2_chk_cr52;
+test_CPG/axsp0_3_3_chk_cr52;
+test_CPG/axstm_3_7_chk_cr52;
+test_CPG/axstm_3_8_chk_cr52;
+
+
+test_CPG/aprt0_2_3_chk_cr52;
+test_CPG/aprt0_2_4_chk_cr52;
+test_CPG/aps0_9_8_chk_cr52;
+test_CPG/aps0_9_9_chk_cr52;
+test_CPG/apsp3_2_7_chk_cr52;
+test_CPG/apsp3_2_8_chk_cr52;
+test_CPG/apsp4_2_5_chk_cr52;
+test_CPG/apsp4_2_6_chk_cr52;
+test_CPG/apvi4_15_22_chk_cr52;
+test_CPG/apvi4_15_23_chk_cr52;
+test_CPG/axhc_15_1_chk_cr52;
+test_CPG/axhc_15_2_chk_cr52;
+test_CPG/aximp0_1_12_chk_cr52;
+test_CPG/aximp0_1_13_chk_cr52;
+test_CPG/axpv_2_18_chk_cr52;
+test_CPG/axpv_2_19_chk_cr52;
+test_CPG/axrc_2_20_chk_cr52;
+test_CPG/axrc_2_21_chk_cr52;
+test_CPG/axrd_2_22_chk_cr52;
+test_CPG/axrd_2_23_chk_cr52;
+test_CPG/axsc_2_28_chk_cr52;
+test_CPG/axsd0_2_29_chk_cr52;
+test_CPG/axsd0_2_30_chk_cr52;
+test_CPG/axsm_2_31_chk_cr52;
+test_CPG/axsm_3_0_chk_cr52;
+test_CPG/axsn_3_2_chk_cr52;
+test_CPG/axsp0_3_3_chk_cr52;
+test_CPG/axstm_3_7_chk_cr52;
+test_CPG/axstm_3_8_chk_cr52;
+test_CPG/axvc_3_11_chk_cr52;
+test_CPG/axvc_3_12_chk_cr52;
+test_CPG/axvi1_3_17_chk_cr52;
+test_CPG/axvi1_3_18_chk_cr52;
+test_CPG/axvi_11_8_chk_cr52;
+test_CPG/axvi_3_16_chk_cr52;
+test_CPG/axviff_3_21_chk_cr52;
+test_CPG/axvip0_3_22_chk_cr52;
+test_CPG/axvip0_3_23_chk_cr52;
+
